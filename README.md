@@ -1,3 +1,10 @@
 # GPMailbox.github.io
+
+![logo](https://github.com/GPMailbox/GPMailbox.github.io/assets/142798305/b4f348d1-a9d1-4559-9df9-abbea154f1cb)
+
 GPMailbox's Website (In dev)
-![BigLogoGwada](https://github.com/GPMailbox/GPMailbox.github.io/assets/142798305/70bdb00b-a70f-418a-8357-30662d9b793c)
+
+Credit :
+
+-L-DEV31 (Léo Tosku)
+-...
