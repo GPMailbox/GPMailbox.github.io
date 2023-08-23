@@ -192,6 +192,110 @@
   right: 10px;
 }
 
+#create-ad-form button[type="submit"] {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s, transform 0.3s;
+        width: 100%;
+        position: relative; 
+        overflow: hidden; 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #create-ad-form button[type="submit"]:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    #create-ad-form button[type="submit"] span {
+        margin-right: 10px;
+    }
+
+    #create-ad-form button[type="submit"]::before {
+        content: "+";
+        font-size: 24px;
+        transition: opacity 0.3s, transform 0.3s;
+    }
+
+    #create-ad-form button[type="submit"]:hover::before {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.hidden-checkbox {
+  display: none;
+}
+
+.button-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button-label:hover {
+  background-color: #999;
+  transform: scale(1.05);
+}
+
+.button-label i {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.hidden-checkbox:checked + .button-label {
+  animation: gradientChange 30s linear forwards infinite;
+  background: linear-gradient(90deg, #ffae00, #ff0080);
+  background-size: 600% 100%;
+  color: white;
+  transform: scale(1.05);
+}
+
+@keyframes gradientChange {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  16.66% {
+    background-position: 100% 50%;
+  }
+  33.33% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  66.66% {
+    background-position: 0% 50%;
+  }
+  83.33% {
+    background-position: 100% 50%;
+  }
+}
+
 </style>
 <body>
     <nav class="sidebar">
@@ -243,11 +347,26 @@
                 <option value="" disabled selected>Sélectionner une ville</option>
             </select>
 
+            <label for="category">Catégorie :</label>
+            <select name="category" id="categorySelect">
+                <option value="" disabled selected>Sélectionner une catégorie</option>
+            </select>
+
             <label for="quality">Prix :</label>
                  <input type="text" name="price" placeholder="Prix du produit" id="priceInput" required>
+
                 <textarea name="description" placeholder="Description"></textarea>
-                <label><input type="checkbox" name="delivery"> Livraison</label>
+
+                <div class="button-container">
+                  <input type="checkbox" id="livraison-checkbox" class="hidden-checkbox">
+                  <label for="livraison-checkbox" class="button-label">
+                    <i class="fas fa-box"></i>
+                    Livraison
+                  </label>
+                </div>
+
                 <button type="submit">Créer Annonce</button>
+
             </div>
         </form>
     </div>
