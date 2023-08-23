@@ -50,21 +50,25 @@ body {
     margin-right: 100px;
 }
 
-.notification-icon:hover,
+
 .message-icon:hover,
-.notification-icon.active,
 .message-icon.active {
     color: #007BFF; 
 }
 
 .account-icon:hover,
 .account-icon.active {
-    color: #c92344; 
+    color: #db4764; 
 }
 
 .heart-icon:hover,
 .heart-icon.active {
     color: #fd86c4; 
+}
+
+.notification-icon:hover,
+.notification-icon.active {
+    color: #f2d562; 
 }
 
 .icon-label {
@@ -605,3 +609,16 @@ background-color: #50a3fb;
     text-decoration: underline;
   }
 
+  @keyframes fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  body > * {
+    animation: fade-in-out 2s ease-in-out;
+  }
+  
