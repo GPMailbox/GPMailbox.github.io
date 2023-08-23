@@ -608,17 +608,9 @@ background-color: #50a3fb;
   .signup_link a:hover{
     text-decoration: underline;
   }
-
-  @keyframes fade-in-out {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
   
-  body > * {
-    animation: fade-in-out 2s ease-in-out;
+  .spacer-text {
+    font-size: 0; 
+    height: 60px; 
+    overflow: hidden; 
   }
-  

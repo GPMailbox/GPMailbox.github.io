@@ -10,7 +10,19 @@
     <title>GPMailbox</title>
     <link rel="icon" type="image/x-icon" href="Elements/icon.ico">
 </head>
-<style>
+<style> 
+  @keyframes fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  body > * {
+    animation: fade-in-out 1s ease-in-out;
+  }
     a {
     text-decoration: none;
 }
@@ -87,7 +99,7 @@
     </div>
 
     <div class="subtitle">
-        <h1>.</h1>
+        <div class="spacer-text">Texte invisible pour occuper de l'espace</div>
         <h1>Votre destination shopping en ligne pour la Guadeloupe, simplifié et diversifié.</h1>
         <p>Créez des connexions locales en toute simplicité grâce à notre plateforme de shopping en ligne en Guadeloupe, favorisant les échanges entre habitants pour acheter et vendre en toute confiance.</p>
     </div>
