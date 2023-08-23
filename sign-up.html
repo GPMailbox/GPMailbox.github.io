@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,101 +30,64 @@ input[type="submit"]:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
-
 </style>
 
 <body>
   <nav class="sidebar">
-      <div class="sphere-decor">
-          <div class="sphere"></div>
-          <div class="sphere"></div>
-          <div class="sphere"></div>
-      </div>
-      <div class="logo">
-          <a href="index.html"><img src="Elements/logo.png" alt="Logo"></a>
-      </div>
-      <h1>Page d'inscription</h1>
+    <div class="sphere-decor">
+      <div class="sphere"></div>
+      <div class="sphere"></div>
+      <div class="sphere"></div>
+    </div>
+    <div class="logo">
+      <a href="index.html"><img src="Elements/logo.png" alt="Logo"></a>
+    </div>
+    <h1>Page d'inscription</h1>
   </nav>
   
   <div class="center">
     <h1>Inscription</h1>
-    <form method="post">
+
+    <form action="process-signup.php" method="post">
       <div class="txt_field">
-        <input type="text" id="username" required>
+        <input type="text" id="name" required>
         <span></span>
-        <label>Nom d'utilisateur :</label>
+        <label for="name">Nom d'utilisateur :</label>
       </div>
       <span class="error-text" id="username-error"></span>
 
       <div class="txt_field">
         <input type="text" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Entrez un e-mail valide">
         <span></span>
-        <label>Email :</label>
+        <label for="email">Email :</label>
       </div>
       <span class="error-text" id="email-error"></span>
 
       <div class="txt_field">
-            <input type="password" id="password" required>
-            <span></span>
-            <label>Mot de passe :</label>
-        </div>
-        <span class="error-text" id="password-error"></span>
+        <input type="password" id="password" required>
+        <span></span>
+        <label for="password">Mot de passe :</label>
+      </div>
+      <span class="error-text" id="password-error"></span>
         
       <div class="social-buttons">
         <button class="google-button">
-            <i class="fab fa-google"></i> S'inscrire avec Google
+          <i class="fab fa-google"></i> S'inscrire avec Google
         </button>
         <button class="facebook-button">
-            <i class="fab fa-facebook"></i> S'inscrire avec Facebook
+          <i class="fab fa-facebook"></i> S'inscrire avec Facebook
         </button>
-    </div>
+      </div>
+      
       <input type="submit" value="S'inscrire">
+      
       <div class="signup_link">
-        Déja membre ? <a href="log-in.html">Connexion</a>
+        Déjà membre ? <a href="log-in.html">Connexion</a>
       </div>
     </form>
   </div>
-
-  <?php
-  $username = $email = $password = "";
-  $usernameError = $emailError = $passwordError = "";
-  
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $username = test_input($_POST["username"]);
-      $email = test_input($_POST["email"]);
-      $password = test_input($_POST["password"]);
-
-      // Perform server-side validations
-      if (!preg_match("/^[a-zA-Z0-9_-]{5,30}$/", $username)) {
-          $usernameError = "Le nom d'utilisateur est invalide.";
-      }
-
-      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-          $emailError = "L'adresse e-mail n'est pas valide.";
-      }
-
-      if (strlen($password) < 8) {
-          $passwordError = "Le mot de passe doit contenir au moins 8 caractères.";
-      }
-
-      // If there are no errors, process the data (you can add database logic here)
-      if (empty($usernameError) && empty($emailError) && empty($passwordError)) {
-          // Perform database operations here if needed
-          // Redirect to a success page or show a success message
-          header("Location: success.php"); // Redirect to a success page
-          exit();
-      }
-  }
-
-  function test_input($data) {
-      $data = trim($data);
-      $data = stripslashes($data);
-      $data = htmlspecialchars($data);
-      return $data;
-  }
-  ?>
-  
 </body>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const usernameInput = document.getElementById('username');
