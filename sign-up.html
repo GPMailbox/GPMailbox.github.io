@@ -29,6 +29,13 @@ input[type="submit"]:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+.h-captcha-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
 </style>
 
 <body>
@@ -78,7 +85,9 @@ input[type="submit"]:disabled {
         </button>
       </div>
       
-      <div class="h-captcha" data-sitekey="932e13b5-81e1-4e95-83cb-0dc6e0ced62f"></div>
+      <div class="h-captcha-container">
+        <div class="h-captcha" data-sitekey="932e13b5-81e1-4e95-83cb-0dc6e0ced62f"></div>
+      </div>
 
       <input type="submit" value="S'inscrire">
       
