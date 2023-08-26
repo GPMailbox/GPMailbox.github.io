@@ -194,6 +194,7 @@ background-color: #50a3fb;
     border-radius: 20px;
     margin: 20px;
     background: linear-gradient(135deg, #ffae00, #ff0080);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06); /* Ombre pour la profondeur et les reflets */
 }
 
 .section-container {

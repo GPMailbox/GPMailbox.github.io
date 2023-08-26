@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="script.js"></script>
     <title>GPMailbox - Inscription</title>
     <link rel="icon" type="image/x-icon" href="Elements/icon.ico">
@@ -16,7 +14,7 @@
 body{
   margin: 0;
   padding: 0;
-  background: linear-gradient(120deg,#007BFF, #6a6aff);
+  background: conic-gradient(from -90deg, #7f6bff 0%, #1dd1a1 33%, #2691d9 66%, #7f6bff 100%);
   height: 100vh;
   overflow: hidden;
 }
@@ -29,6 +27,36 @@ input[type="submit"]:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+.gender-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gender-button-container {
+  position: relative;
+  margin: 0 10px;
+}
+
+.gender-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #fff;
+  background-color: #007BFF;
+}
+
+.gender-button i {
+  font-size: 30px; /* Adjust the icon size as needed */
+}
+
 
 </style>
 
@@ -68,6 +96,29 @@ input[type="submit"]:disabled {
             <label>Mot de passe :</label>
         </div>
         <span class="error-text" id="password-error"></span>
+
+       <div class="gender-buttons">
+        <div class="gender-button-container">
+          <div class="gender-button">
+            <i class="fas fa-venus"></i> <!-- Female symbol -->
+            <span class="gender-label">Femme</span>
+          </div>
+          <div class="selected-border"></div>
+        </div>
+        <div class="gender-button-container">
+          <div class="gender-button">
+            <i class="fas fa-mars"></i> <!-- Male symbol -->
+            <span class="gender-label">Homme</span>
+          </div>
+          <div class="selected-border"></div>
+        </div>
+        <div class="gender-button-container">
+          <div class="gender-button">
+            <i class="fas fa-times"></i> <!-- Non Specified -->
+            <span class="gender-label">Non spéc.</span>
+          </div>
+        </div>
+      </div>
         
       <div class="social-buttons">
         <button class="google-button">
@@ -86,68 +137,119 @@ input[type="submit"]:disabled {
 
 </body>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const emailInput = document.getElementById('email');
-    const submitButton = document.querySelector('input[type="submit"]');
+  const genderButtons = document.querySelectorAll('.gender-button-container');
+const submitButton = document.querySelector('input[type="submit"]');
 
-    usernameInput.addEventListener('input', validateUsername);
-    passwordInput.addEventListener('input', validatePassword);
-    emailInput.addEventListener('input', validateEmail);
-    function validateUsername() {
-  const username = usernameInput.value.trim();
-  const usernameError = document.getElementById('username-error');
-  const usernamePattern = /^[a-zA-Z0-9_-]{5,30}$/;
+submitButton.disabled = true; // Désactive le bouton de soumission initialement
 
-  if (!username) {
-    usernameError.textContent = "";
-    submitButton.disabled = true;
-  } else if (!usernamePattern.test(username)) {
-    if (username.match(/[^a-zA-Z0-9_-]/)) {
-      usernameError.textContent = "Le nom d'utilisateur ne peut contenir que des lettres, des chiffres, des tirets ou des underscores.";
-    } else {
-      usernameError.textContent = "Le nom d'utilisateur doit contenir entre 5 et 30 caractères.";
-    }
-    submitButton.disabled = true;
-  } else {
-    usernameError.textContent = "";
-    submitButton.disabled = false;
-  }
-}
-
-function validateEmail() {
-  const email = emailInput.value.trim();
-  const emailError = document.getElementById('email-error');
-  const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
-
-  if (!email) {
-    emailError.textContent = "";
-    submitButton.disabled = true;
-  } else if (!emailPattern.test(email)) {
-    emailError.textContent = "Veuillez entrer une adresse e-mail valide.";
-    submitButton.disabled = true;
-  } else {
-    emailError.textContent = "";
-    submitButton.disabled = false;
-  }
-}
-
-function validatePassword() {
-  const password = passwordInput.value.trim();
-  const passwordError = document.getElementById('password-error');
+genderButtons.forEach(buttonContainer => {
+  const button = buttonContainer.querySelector('.gender-button');
   
-  if (!password) {
-    passwordError.textContent = "";
-    submitButton.disabled = true;
-  } else if (password.length < 8) {
-    passwordError.textContent = "Le mot de passe doit contenir au moins 8 caractères.";
-    submitButton.disabled = true;
-  } else {
-    passwordError.textContent = "";
-    submitButton.disabled = false;
-  }
-}
+  button.addEventListener('click', () => {
+    genderButtons.forEach(b => {
+      const btn = b.querySelector('.gender-button');
+      btn.classList.remove('selected');
+      btn.style.backgroundColor = '#e7e7e7';
+      btn.style.color = '#007BFF';
+    });
+
+    button.classList.add('selected');
+    button.style.backgroundColor = '#007BFF';
+    button.style.color = '#fff';
+
+    validateGender();
   });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const usernameInput = document.getElementById('username');
+  const passwordInput = document.getElementById('password');
+  const emailInput = document.getElementById('email');
+
+  usernameInput.addEventListener('input', validateUsername);
+  passwordInput.addEventListener('input', validatePassword);
+  emailInput.addEventListener('input', validateEmail);
+
+  function validateUsername() {
+    const username = usernameInput.value.trim();
+    const usernameError = document.getElementById('username-error');
+    const usernamePattern = /^[a-zA-Z0-9_-]{5,30}$/;
+
+    if (!username) {
+      usernameError.textContent = "";
+      submitButton.disabled = true;
+    } else if (!usernamePattern.test(username)) {
+      if (username.match(/[^a-zA-Z0-9_-]/)) {
+        usernameError.textContent = "Le nom d'utilisateur ne peut contenir que des lettres, des chiffres, des tirets ou des underscores.";
+      } else {
+        usernameError.textContent = "Le nom d'utilisateur doit contenir entre 5 et 30 caractères.";
+      }
+      submitButton.disabled = true;
+    } else {
+      usernameError.textContent = "";
+      validateAllFields();
+    }
+  }
+
+  function validateEmail() {
+    const email = emailInput.value.trim();
+    const emailError = document.getElementById('email-error');
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+
+    if (!email) {
+      emailError.textContent = "";
+      submitButton.disabled = true;
+    } else if (!emailPattern.test(email)) {
+      emailError.textContent = "Veuillez entrer une adresse e-mail valide.";
+      submitButton.disabled = true;
+    } else {
+      emailError.textContent = "";
+      validateAllFields();
+    }
+  }
+
+  function validatePassword() {
+    const password = passwordInput.value.trim();
+    const passwordError = document.getElementById('password-error');
+    
+    if (!password) {
+      passwordError.textContent = "";
+      submitButton.disabled = true;
+    } else if (password.length < 8) {
+      passwordError.textContent = "Le mot de passe doit contenir au moins 8 caractères.";
+      submitButton.disabled = true;
+    } else {
+      passwordError.textContent = "";
+      validateAllFields();
+    }
+  }
+
+  function validateGender() {
+    const selectedGenderButton = document.querySelector('.gender-button.selected');
+    const genderError = document.getElementById('gender-error');
+    
+    if (!selectedGenderButton) {
+      genderError.textContent = "Veuillez sélectionner un genre.";
+      submitButton.disabled = true;
+    } else {
+      genderError.textContent = "";
+      validateAllFields();
+    }
+  }
+
+  function validateAllFields() {
+    const username = usernameInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+    const selectedGenderButton = document.querySelector('.gender-button.selected');
+    
+    if (username && email && password && selectedGenderButton) {
+      submitButton.disabled = false;
+    } else {
+      submitButton.disabled = true;
+    }
+  }
+});
+
 </script>
 </html>
