@@ -3373,7 +3373,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "iPhone 13 Mini",
         "iPhone 13 Pro Max",
         "iPhone SE (2020)",
-        "§./#L-DEV31 Salut c'est moi",
+        "§Site web par Léo TOSKU",
         "Échantillonneurs automatiques",
         "Écharpe",
         "Échasses",
