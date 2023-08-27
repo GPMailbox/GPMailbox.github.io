@@ -2991,6 +2991,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Sécateurs",
         "Sécheurs d'air comprimé",
         "Sénégal",
+        "Sextoy",
         "Séparateur de graisse",
         "Séparateurs LCD",
         "Sérums anti-âge",
