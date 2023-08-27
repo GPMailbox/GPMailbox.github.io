@@ -615,38 +615,3 @@ background-color: #50a3fb;
     height: 60px; 
     overflow: hidden; 
   }
-  
-  <div class="wrapper">
-      <input type="text" name="search" id="search" placeholder="Type to search" autocomplete="chrome-off">
-      <button><i class="fa fa-search"></i></button>
-      <div class="results">
-        <ul>
-        </ul>
-      </div>
-      
-  .results {
-    padding: 0px;
-  }
-  
-  .results ul {margin: 0; padding: 0; }
-  .results ul li {
-    list-style: none;
-    border-radius: 3px;
-    opacity: 0;
-    display: none;
-    padding: 8px 12px;
-    transition: all .5s linear;
-  }
-  
-  .show .results ul li {
-    opacity: 1;
-    display: block;
-  }
-  
-  .show .results {
-    padding: 10px;
-  }
-  
-  .results ul li:hover {
-    background: #ececec
-  }
