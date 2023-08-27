@@ -2539,7 +2539,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "Zapper",
     "Zapper Gun",
     "Zimbabwe",
-    "plug an*l",
+    "Plug an*l",
     "Écharpe",
     "Échasses",
     "Échelle pour oiseaux",
