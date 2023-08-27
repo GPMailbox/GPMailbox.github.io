@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script type="text/javascript" src="searchAndSuggestionHttpcart.js"></script>
     <script src="script.js"></script>
+    <script src="suggestions.js"></script>
     <title>GPMailbox</title>
     <link rel="icon" type="image/x-icon" href="Elements/icon.ico">
 </head>
@@ -42,8 +43,7 @@
             <button class="search-button" id="searchButton" onclick="toggleSearch()">
                 <i class="fas fa-search"></i> Rechercher
             </button>
-            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher..." onkeyup="getSuggestions()">
-            <div id="suggestionsContainer" class="suggestions-container"></div>
+            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher...">
         </div>
 
         <div class="dropdown">
@@ -108,13 +108,13 @@
 
 <img class="BigLogoGwada" src="Elements/BigLogoGwada.png" alt="Big Logo Gwada">
 
-<div class="searchbarbig">
-    <input type="text" name="search" id="search" placeholder="Rechercher..." autocomplete="chrome-off">
+<div class="searchbar-container">
+    <div class="searchbarbig">
+      <input type="text" name="search" id="search" placeholder="Rechercher..." autocomplete="off">
       <button><i class="fa fa-search"></i></button>
-</div>
-<div class="results">
-    <ul>
-    </ul>
+    </div>
+    <div class="suggestion-box" id="suggestions"></div>
+  </div>
 
     <div class="trend-container">
         <i class="fas fa-home section-icon"></i>

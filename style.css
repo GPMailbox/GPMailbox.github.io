@@ -418,6 +418,12 @@ background-color: #50a3fb;
     src: url('Elements/crux.ttf') format('truetype'); 
 }
 
+.searchbar-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 135px;
+  }
+
   .searchbarbig {
     display: flex;
     align-items: center;
@@ -428,19 +434,18 @@ background-color: #50a3fb;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-left: 150px;
     margin-right: 150px;
-    margin-bottom: 100px;
-}
+  }
 
-.searchbarbig input[type="text"] {
+  .searchbarbig input[type="text"] {
     border: none;
     outline: none;
     padding: 8px;
     font-size: 30px;
     width: 100%;
     color: #007BFF;
-}
+  }
 
-.searchbarbig button {
+  .searchbarbig button {
     border: none;
     outline: none;
     background-color: transparent;
@@ -448,8 +453,31 @@ background-color: #50a3fb;
     font-size: 18px;
     margin-left: 8px;
     color: #007BFF;
-}
+  }
 
+  .suggestion-box {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9); /* Couleur de fond légèrement transparente */
+    backdrop-filter: blur(5px); /* Effet de flou pour le contenu derrière */
+    border: 1px solid gray;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1;
+    margin-top: 5px;
+    left: 150px; /* Ajustez cette valeur si nécessaire */
+    right: 150px; /* Ajustez cette valeur si nécessaire */
+    display: none;
+    border-radius: 10px;
+  }
+
+  .suggestion {
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .suggestion:hover {
+    background-color: lightgray;
+  }
 
 .social-buttons {
     display: flex;
