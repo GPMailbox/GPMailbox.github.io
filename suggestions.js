@@ -2641,7 +2641,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .filter(suggestion =>
           removeAccents(suggestion.toLowerCase()).startsWith(normalizedLastWord)
         )
-        .slice(0, 5); // Ne prendre que les 4 premières suggestions
+        
 
       matchingSuggestions.forEach(suggestion => {
         const suggestionElement = document.createElement("div");
