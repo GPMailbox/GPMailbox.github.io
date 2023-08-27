@@ -1620,6 +1620,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "Nintendo GameCube",
     "Nintendo Labo",
     "Nintendo Switch",
+    "Switch",
     "Nintendont",
     "Niue",
     "Niveau laser",
