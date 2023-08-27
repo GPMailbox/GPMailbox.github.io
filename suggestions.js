@@ -2116,7 +2116,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Nunchuk",
         "Nyckelharpa",
         "Népal",
-        "Objets",
         "Objets d'art en bois guadeloupéens",
         "Objets de domotique intelligents",
         "Observatoire astronomique",
