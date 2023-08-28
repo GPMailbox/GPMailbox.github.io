@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const suggestionBox = document.getElementById("suggestions");
 
   const suggestions = [
-    "1984",
+        "1984",
         "ASUS",
         "Abonnements à des services de streaming",
         "Abreuvoir automatique pour chiens",
@@ -3368,6 +3368,10 @@ document.addEventListener("DOMContentLoaded", function () {
         "e.foundation smartphone",
         "iMac",
         "iPhone 12",
+        "HWFLY",
+        "PicoFly",
+        "Modchip",
+        "SXCore",
         "iPhone 12 Pro Max",
         "iPhone 13",
         "iPhone 13 Mini",
