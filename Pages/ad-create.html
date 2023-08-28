@@ -1,297 +1,74 @@
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/style.css">
+    <link rel="stylesheet" href="../Styles/ad-create-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../Javascript/script.js"></script>
-    <title>GPMailbox</title>
     <link rel="icon" type="image/x-icon" href="../Elements/icon.ico">
+    <title>GPMailbox</title>
 </head>
-
-<style>
-#create-ad-form-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-
-#create-ad-form {
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.form-frame {
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-}
-
-#create-ad-form select,
-#create-ad-form input[type="text"],
-#create-ad-form input[type="number"],
-#create-ad-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-}
-
-#create-ad-form button[type="submit"] {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s, transform 0.3s;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#create-ad-form button[type="submit"]:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-#create-ad-form button[type="submit"] span {
-    margin-right: 10px;
-}
-
-#create-ad-form button[type="submit"]::before {
-    content: "+";
-    font-size: 24px;
-    transition: opacity 0.3s, transform 0.3s;
-}
-
-#create-ad-form button[type="submit"]:hover::before {
-    opacity: 0;
-    transform: scale(1.5);
-}
-
-.upload-container {
-    text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-}
-
-.upload-label {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.input-file {
-    display: none;
-}
-
-.preview-container {
-    margin-top: 20px;
-}
-
-.preview-image {
-    display: inline-block;
-    position: relative;
-    margin: 10px;
-    cursor: pointer;
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-}
-
-.preview-image-img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 5px;
-}
-
-.delete-icon {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: none;
-}
-
-.preview-image:hover .delete-icon {
-    display: block;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.modal-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-}
-
-.close-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.modal-image {
-    max-width: 100%;
-    max-height: 80vh;
-}
-
-.modal-navigation {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
-}
-
-.modal-prev {
-    left: 10px;
-}
-
-.modal-next {
-    right: 10px;
-}
-
-.hidden-checkbox {
-    display: none;
-}
-
-.button-label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
-    padding: 10px 20px;
-    margin-bottom: 15px;
-    background-color: #ccc;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
-    font-size: 10px;
-}
-
-.button-label i {
-    font-size: 30px;
-    margin-bottom: 5px;
-}
-
-.hidden-checkbox:checked + .button-label {
-    background: conic-gradient(from -90deg, #7f6bff 0%, #1dd1a1 33%, #565cfd 66%, #7f6bff 100%);
-    color: white;
-    animation: flash 0.4s linear forwards;
-}
-
-.button-label:hover {
-    background-color: #999;
-    transform: scale(1.05);
-}
-
-/* Flash animation */
-@keyframes flash {
-    0% {
-        opacity: 0;
-        color: #333;
-    }
-    100% {
-        opacity: 1;
-        color: white;
-    }
-}
-</style>
-
 <body>
-  <nav class="sidebar">
-  <div class="sphere-decor"><div class="sphere"></div><div class="sphere"></div><div class="sphere"></div></div>
-  <div class="logo"><a href="../index.html"><img src="../Elements/logo.png" alt="Logo"></a></div>
-  <h1>Creation d'annonce</h1>
-  </nav>
-  <div id="create-ad-form-container">
-  <form id="create-ad-form" enctype="multipart/form-data">
-  <h1>Image(s) :</h1>
-  <div class="upload-container">
-  <label for="imageUpload" class="upload-label">
-  <input type="file" id="imageUpload" class="input-file" accept="image/*" multiple>
-  <span id="remainingImages">Choisissez jusqu'à 10 images</span></label>
-  <div class="preview-container" id="previewContainer"></div>
-  </div>
-  <div class="modal" id="imageModal">
-  <span class="modal-navigation modal-prev"><i class="fas fa-chevron-left"></i></span>
-  <div class="modal-content">
-  <span class="close-modal">&times;</span><img class="modal-image" src="" alt="Aperçu agrandi">
-  </div><span class="modal-navigation modal-next"><i class="fas fa-chevron-right"></i></span>
-  </div>
-  <label for="title">Titre du produit :</label>
-  <input type="text" name="title" placeholder="Titre" maxlength="200" required>
-  <label for="description">Description du produit :</label>
-  <textarea name="description" placeholder="Description"></textarea>
-  <input type="checkbox" id="livraison-checkbox" class="hidden-checkbox">
-  <label for="livraison-checkbox" class="button-label">
-  <i class="fas fa-box"></i>Livraison</label>
-  <label for="quality">Qualité du produit :</label>
-  <select name="quality"><option value="" disabled selected>Sélectionner la qualité du produit</option><option value="par_piece">Pour Pièces</option><option value="mauvaise_qualite">Mauvaise Qualité</option><option value="usee">Qualité Satisfaisante</option><option value="bonne_qualite">Bonne Qualité</option><option value="excellente_qualite">Excellente Qualité</option><option value="neuf">Neuf</option></select>
-  <label for="quality">Ville :</label>
-  <select name="city" id="citySelect"><option value="" disabled selected>Sélectionner une ville</option></select>
-  <label for="category">Catégorie :</label>
-  <select name="category" id="categorySelect"><option value="" disabled selected>Sélectionner une catégorie</option></select>
-  <label for="quality">Prix :</label>
-  <input type="text" name="price" placeholder="Prix du produit" id="priceInput" required>
-  <button type="submit">Créer Annonce</button>
-  </form>
-  </div>
+    <nav class="sidebar">
+        <div class="sphere-decor">
+            <div class="sphere"></div>
+            <div class="sphere"></div>
+            <div class="sphere"></div>
+        </div>
+        <div class="logo">
+            <a href="../index.html"><img src="../Elements/logo.png" alt="Logo"></a>
+        </div>
+        <h1>Création d'annonce</h1>
+    </nav>
+    <div id="create-ad-form-container">
+        <form id="create-ad-form" enctype="multipart/form-data">
+            <h1>Image(s) :</h1>
+            <div class="upload-container">
+                <label for="imageUpload" class="upload-label">
+                <input type="file" id="imageUpload" class="input-file" accept="image/*" multiple>
+                <span id="remainingImages">Choisissez jusqu'à 10 images</span></label>
+                <div class="preview-container" id="previewContainer"></div>
+                </div>
+                <div class="modal" id="imageModal">
+                <span class="modal-navigation modal-prev"><i class="fas fa-chevron-left"></i></span>
+                <div class="modal-content">
+                <span class="close-modal">&times;</span><img class="modal-image" src="" alt="Aperçu agrandi">
+                </div><span class="modal-navigation modal-next"><i class="fas fa-chevron-right"></i></span>
+                </div>
+            <label for="title">Titre du produit :</label>
+            <input type="text" name="title" placeholder="Titre" maxlength="200" required>
+            <label for="description">Description du produit :</label>
+            <textarea name="description" placeholder="Description"></textarea>
+            <input type="checkbox" id="livraison-checkbox" class="hidden-checkbox">
+            <label for="livraison-checkbox" class="button-label">
+                <i class="fas fa-box"></i>Livraison
+            </label>
+            <label for="quality">Qualité du produit :</label>
+            <select name="quality">
+                <option value="" disabled selected>Sélectionner la qualité du produit</option>
+                <option value="par_piece">Pour Pièces</option>
+                <option value="mauvaise_qualite">Mauvaise Qualité</option>
+                <option value="usee">Qualité Satisfaisante</option>
+                <option value="bonne_qualite">Bonne Qualité</option>
+                <option value="excellente_qualite">Excellente Qualité</option>
+                <option value="neuf">Neuf</option>
+            </select>
+            <label for="city">Ville :</label>
+            <select name="city" id="citySelect">
+                <option value="" disabled selected>Sélectionner une ville</option>
+            </select>
+            <label for="category">Catégorie :</label>
+            <select name="category" id="categorySelect">
+                <option value="" disabled selected>Sélectionner une catégorie</option>
+            </select>
+            <label for="price">Prix :</label>
+            <input type="text" name="price" placeholder="Prix du produit" id="priceInput" required>
+            <button type="submit">Créer Annonce</button>
+        </form>
+    </div>
 </body>
+</html>
 
 <script>
 const categories = [
