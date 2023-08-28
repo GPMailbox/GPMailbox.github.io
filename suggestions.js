@@ -1692,7 +1692,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "Gants en nitrile",
     "Gants et mitaines de cosplay",
     "Gateway 3DS",
-    "Gateway 3DS pour Nintendo 3DS",
     "Gazon en rouleau",
     "Geai bleu",
     "Gears of War",

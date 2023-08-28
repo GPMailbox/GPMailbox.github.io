@@ -524,7 +524,7 @@ background-color: #50a3fb;
 }
 
 .center{
-    position: relative;
+    position: absolute;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -642,4 +642,21 @@ background-color: #50a3fb;
     font-size: 0; 
     height: 60px; 
     overflow: hidden; 
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #007BFF;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #2691d9;
   }
