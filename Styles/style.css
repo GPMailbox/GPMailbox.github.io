@@ -35,6 +35,7 @@ body {
     text-align: center;
 }
 
+.cart-icon,
 .account-icon,
 .notification-icon,
 .heart-icon,
@@ -50,6 +51,10 @@ body {
     margin-right: 100px;
 }
 
+.cart-icon:hover,
+.cart-icon.active {
+    color: #f28b62; 
+}
 
 .message-icon:hover,
 .message-icon.active {
