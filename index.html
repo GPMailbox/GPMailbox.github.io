@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script type="text/javascript" src="searchAndSuggestionHttpcart.js"></script>
-    <script src="script.js"></script>
-    <script src="suggestions.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({ pageLanguage: 'fr' }, 'google_translate_element');
+        }
+      </script>
+    <script src="Javascript/script.js"></script>
+    <script src="Javascript/suggestions.js"></script>
     <title>GPMailbox</title>
     <link rel="icon" type="image/x-icon" href="Elements/icon.ico">
 </head>
@@ -38,7 +43,7 @@
         <div class="logo">
             <a href="#"><img id="logo" src="Elements/logo.png" alt="Logo"></a>
         </div>
-        <a href="ad-create.html"><button class="sidebar-button blue-bg"><i class="fas fa-plus"></i> Déposer une annonce</button></a>
+        <a href="Pages/ad-create.html"><button class="sidebar-button blue-bg"><i class="fas fa-plus"></i> Déposer une annonce</button></a>
         <div class="search-container">
             <button class="search-button" id="searchButton" onclick="toggleSearch()">
                 <i class="fas fa-search"></i> Rechercher
@@ -90,8 +95,8 @@
             <i class="fas fa-user-circle"></i>
             <p class="icon-label">Compte</p>
                 <div class="dropdown-content-account">
-                    <a href="sign-up.html"><i class="fas fa-plus"></i> S'inscrire</a>
-                    <a href="log-in.html"><i class="fas fa-user-circle"></i> Se connecter</a>
+                    <a href="Pages/sign-up.html"><i class="fas fa-plus"></i> S'inscrire</a>
+                    <a href="Pages/log-in.html"><i class="fas fa-user-circle"></i> Se connecter</a>
             </div>
         </div>
         </div>
@@ -457,14 +462,15 @@
         <div class="footer-content">
           <div class="footer-section">
             <div class="footer-title"><i class="fas fa-info-circle footer-icon"></i>  A PROPOS</div>
-            <a href="about-us.html" class="footer-link">Qui sommes-nous ?</a>
-            <a href="contact.html" class="footer-link">Contact</a>
+            <a href="Pages/about-us.html" class="footer-link">Qui sommes-nous ?</a>
+            <a href="Pages/contact.html" class="footer-link">Contact</a>
           </div>
           <div class="footer-section">
             <div class="footer-title"><i class="fas fa-gavel footer-icon"></i>  INFORMATIONS LEGALES</div>
-            <a href="terms-of-use.html" class="footer-link">Conditions d'utilisation</a>
-            <a href="privacy-policy.html" class="footer-link">Politique de confidentialité</a>
+            <a href="Pages/terms-of-use.html" class="footer-link">Conditions d'utilisation</a>
+            <a href="Pages/privacy-policy.html" class="footer-link">Politique de confidentialité</a>
           </div>
+          <div id="google_translate_element"></div>
         </div>
       </div>
 </body>
