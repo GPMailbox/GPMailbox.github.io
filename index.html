@@ -91,12 +91,13 @@
         </div>
 
         <div class="dropdown">
-        <div class="account-icon" id="accountIcon">
-            <i class="fas fa-user-circle"></i>
-            <p class="icon-label">Compte</p>
+            <div class="account-icon" id="accountIcon">
+                <i class="fas fa-user-circle"></i>
+                <p class="icon-label">Compte</p>
                 <div class="dropdown-content-account">
                     <a href="Pages/sign-up.html"><i class="fas fa-plus"></i> S'inscrire</a>
                     <a href="Pages/log-in.html"><i class="fas fa-user-circle"></i> Se connecter</a>
+                </div>
             </div>
         </div>
         </div>
@@ -474,4 +475,23 @@
         </div>
       </div>
 </body>
+<script>
+    
+document.addEventListener('DOMContentLoaded', function() {
+    const accountIcon = document.getElementById('accountIcon');
+    const dropdownContentAccount = accountIcon.querySelector('.dropdown-content-account');
+    const sidebar = document.querySelector('.sidebar');
+
+    accountIcon.addEventListener('mouseenter', () => {
+        dropdownContentAccount.style.display = 'block';
+    });
+
+    sidebar.addEventListener('mouseleave', (event) => {
+        const isHoveringSidebar = event.relatedTarget && event.relatedTarget.closest('.sidebar');
+        if (!isHoveringSidebar) {
+            dropdownContentAccount.style.display = 'none';
+        }
+    });
+});
+</script>
 </html>

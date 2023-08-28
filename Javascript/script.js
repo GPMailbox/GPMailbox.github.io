@@ -45,9 +45,21 @@ function toggleImageList(imageListId, buttonId) {
     imageGrid.classList.toggle('hide-overflow');
 }
 
+function toggleSearch() {
+    const searchButton = document.getElementById('searchButton');
+    const searchInput = document.getElementById('searchInput');
+
+    searchButton.classList.toggle('active');
+    searchInput.classList.toggle('active');
+
+    if (searchButton.classList.contains('active')) {
+        searchInput.focus();
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const accountIcon = document.getElementById('accountIcon');
-    const dropdownContentAccount = document.querySelector('.dropdown-content-account');
+    const dropdownContentAccount = accountIcon.querySelector('.dropdown-content-account');
     const sidebar = document.querySelector('.sidebar');
 
     accountIcon.addEventListener('mouseenter', () => {
@@ -61,17 +73,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-function toggleSearch() {
-    const searchButton = document.getElementById('searchButton');
-    const searchInput = document.getElementById('searchInput');
-
-    searchButton.classList.toggle('active');
-    searchInput.classList.toggle('active');
-
-    if (searchButton.classList.contains('active')) {
-        searchInput.focus();
-    }
-}
-
-
