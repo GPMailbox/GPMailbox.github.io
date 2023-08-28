@@ -1,3 +1,14 @@
+function removeHtmlExtension() {
+    var currentURL = window.location.href;
+
+    if (currentURL.endsWith('.html')) {
+        var newURL = currentURL.substring(0, currentURL.length - 5);
+        window.history.replaceState(null, null, newURL);
+    }
+}
+
+removeHtmlExtension();
+
 function replaceImage() {
     var logo = document.getElementById('logo');
     var newImage = document.createElement('img');
@@ -13,7 +24,6 @@ function replaceImage() {
     logo.parentNode.replaceChild(newImage, logo);
 }
 
-// Appeler la fonction au chargement de la page et lorsqu'on redimensionne la fenêtre
 window.onload = replaceImage;
 window.addEventListener('resize', replaceImage);
 
