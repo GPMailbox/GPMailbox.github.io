@@ -9,6 +9,14 @@ function removeHtmlExtension() {
 
 removeHtmlExtension();
 
+function replaceDomain() {
+    var currentURL = window.location.href;
+    var newURL = currentURL.replace('gpmailbox.github.io', 'gpmailbox.fr');
+    window.history.replaceState(null, null, newURL);
+}
+
+replaceDomain();
+
 function replaceImage() {
     var logo = document.getElementById('logo');
     var newImage = document.createElement('img');
