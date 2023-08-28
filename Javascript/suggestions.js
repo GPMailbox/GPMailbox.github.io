@@ -1,7 +1,3 @@
-function removeAccents(input) {
-  return input.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("search");
   const suggestionBox = document.getElementById("suggestions");
@@ -611,7 +607,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "Béchers",
     "Bénin",
     "CD-i",
-    "CFW Installation Guide",
     "CRT",
     "Cabo Verde",
     "Cacatoès",
@@ -1692,6 +1687,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "Gants en nitrile",
     "Gants et mitaines de cosplay",
     "Gateway 3DS",
+    "Gateway 3DS pour Nintendo 3DS",
     "Gazon en rouleau",
     "Geai bleu",
     "Gears of War",
@@ -1825,7 +1821,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "Hache de jardin",
     "Hachoir",
     "Hachoir à viande",
-    "Hacking Tool",
     "Hades",
     "Hadiths",
     "Half-Life",
@@ -1958,7 +1953,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "JRunner",
     "Jack Russell Terrier",
     "Jacob & Co.",
-    "Jailbreak",
     "Jak II",
     "Jak and Daxter: The Precursor Legacy",
     "Jamaïque",
@@ -2614,6 +2608,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "Nintendo Switch Light",
     "Nintendo Switch Oled",
     "Nintendoland",
+    "Nintendont",
     "Nioh",
     "Niue",
     "Niveau laser",
@@ -2730,18 +2725,14 @@ document.addEventListener("DOMContentLoaded", function () {
     "PC Gamer",
     "PICO-PI-IMX8M",
     "PINE A64-LTS",
-    "PS Jailbreak pour PlayStation 3",
     "PS Vita",
     "PS Vita Henkaku",
     "PS1",
     "PS2",
     "PS2 FreeMCBoot",
     "PS3",
-    "PS3 CFW",
     "PS4",
-    "PS4 Exploit",
     "PS5",
-    "PS5 Jailbreak",
     "PSP",
     "PSP (PlayStation Portable)",
     "PSP Custom Firmware",
@@ -3194,10 +3185,20 @@ document.addEventListener("DOMContentLoaded", function () {
     "RG280V",
     "RG350",
     "RG351M",
+    "3DS",
+    "SNES",
+    "NES",
+    "n3DS",
+    "2DS",
+    "new 3DS",
+    "new 2DS",
+    "3DS XL",
+    "2DS XL",
+    "new 3DS XL",
+    "new 2DS XL",
     "RGH",
     "RK2020",
     "ROCKPro64",
-    "ROM Hack",
     "Raccord de tuyau",
     "Raccord en laiton",
     "Raccord en plastique",
@@ -3717,7 +3718,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "Suède",
     "Sweat à capuche",
     "Switch",
-    "Switch Jailbreak",
     "Synthétiseurs",
     "Syphon Filter",
     "Syrie",
@@ -4240,7 +4240,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "iPhone 13 Mini",
     "iPhone 13 Pro Max",
     "iPhone SE (2020)",
-    "§./#L-DEV31 Salut c'est moi",
+    "§ site web par Léo TOSKU",
     "Échantillonneurs automatiques",
     "Écharpe",
     "Échasses",
@@ -4354,96 +4354,139 @@ document.addEventListener("DOMContentLoaded", function () {
     "Îles Cook",
     "Îles Marshall",
     "Îles Salomon"
-  ]
-  
+  ];
+
   let activeSuggestionIndex = -1;
+  let lastInput = "";
 
-searchInput.addEventListener("input", function () {
-  const inputText = searchInput.value;
-  const words = inputText.split(" ");
-  const currentTypedWord = words[words.length - 1];
+  searchInput.addEventListener("input", function () {
+    const inputText = searchInput.value.trim();
+    suggestionBox.innerHTML = "";
 
-  suggestionBox.innerHTML = "";
+    if (inputText) {
+      const matchingSuggestions = suggestions.filter(suggestion => {
+        return suggestion.toLowerCase().startsWith(inputText.toLowerCase());
+      });
 
-  const normalizedCurrentWord = removeAccents(currentTypedWord.toLowerCase());
+      if (matchingSuggestions.length > 0) {
+        matchingSuggestions.forEach((suggestion, index) => {
+          const suggestionElement = createSuggestionElement(suggestion, index);
+          suggestionBox.appendChild(suggestionElement);
+        });
 
-  if (normalizedCurrentWord !== "") {
-    const matchingSuggestions = suggestions.filter(suggestion => {
-      const normalizedSuggestion = removeAccents(suggestion.toLowerCase());
-      return normalizedSuggestion.includes(normalizedCurrentWord) && isPartialMatch(normalizedSuggestion, normalizedCurrentWord);
+        suggestionBox.style.display = "block";
+        lastInput = inputText;
+      } else {
+        suggestionBox.style.display = "none";
+        suggestNextWords(inputText);
+      }
+    } else {
+      suggestionBox.style.display = "none";
+    }
+  });
+
+  function suggestNextWords(currentInput) {
+    const inputWords = currentInput.split(" ");
+    const nextWords = suggestions.filter(suggestion => {
+      const lowerSuggestion = suggestion.toLowerCase();
+      return inputWords.every(word => lowerSuggestion.includes(word.toLowerCase()));
     });
 
-    matchingSuggestions.forEach((suggestion, index) => {
-      const suggestionElement = document.createElement("div");
-      suggestionElement.classList.add("suggestion");
-      suggestionElement.textContent = suggestion;
-
-      suggestionElement.addEventListener("click", function () {
-        words[words.length - 1] = suggestion;
-        const updatedText = words.join(" ");
-        searchInput.value = updatedText;
-        suggestionBox.style.display = "none";
-      });
-
-      suggestionElement.addEventListener("mouseenter", function () {
-        activeSuggestionIndex = index;
-        highlightActiveSuggestion();
-      });
-
+    nextWords.forEach((suggestion, index) => {
+      const suggestionElement = createSuggestionElement(suggestion, index);
       suggestionBox.appendChild(suggestionElement);
     });
 
-    if (matchingSuggestions.length > 0) {
+    if (nextWords.length > 0) {
+      suggestionBox.style.display = "block";
+    } else {
+      suggestionBox.style.display = "none";
+      suggestLastWord(inputWords[inputWords.length - 1]);
+    }
+  }
+
+  function suggestLastWord(lastWord) {
+    const matchingLastWordSuggestions = suggestions.filter(suggestion => {
+      return suggestion.toLowerCase().startsWith(lastWord.toLowerCase());
+    });
+
+    matchingLastWordSuggestions.forEach((suggestion, index) => {
+      const suggestionElement = createSuggestionElement(suggestion, index);
+      suggestionBox.appendChild(suggestionElement);
+    });
+
+    if (matchingLastWordSuggestions.length > 0) {
       suggestionBox.style.display = "block";
     } else {
       suggestionBox.style.display = "none";
     }
-  } else {
-    suggestionBox.style.display = "none";
   }
-});
 
-searchInput.addEventListener("keydown", function (event) {
-  if (event.key === "ArrowDown" || event.key === "ArrowUp") {
-    event.preventDefault();
-    const totalSuggestions = suggestionBox.children.length;
+  function createSuggestionElement(suggestion, index) {
+    const suggestionElement = document.createElement("div");
+    suggestionElement.classList.add("suggestion");
+    suggestionElement.textContent = suggestion;
 
-    if (totalSuggestions > 0) {
-      if (event.key === "ArrowDown") {
-        activeSuggestionIndex = (activeSuggestionIndex + 1) % totalSuggestions;
-      } else if (event.key === "ArrowUp") {
-        activeSuggestionIndex = (activeSuggestionIndex - 1 + totalSuggestions) % totalSuggestions;
-      }
+    suggestionElement.addEventListener("click", function () {
+      replaceLastWord(suggestion);
+      suggestionBox.style.display = "none";
+    });
+
+    suggestionElement.addEventListener("mouseenter", function () {
+      activeSuggestionIndex = index;
       highlightActiveSuggestion();
-    }
-  } else if (event.key === "Enter") {
-    if (activeSuggestionIndex !== -1) {
-      const selectedSuggestion = suggestionBox.children[activeSuggestionIndex];
-      selectedSuggestion.click();
+    });
+
+    return suggestionElement;
+  }
+
+  function replaceLastWord(replacement) {
+    const words = searchInput.value.split(" ");
+    words[words.length - 1] = words.length === 1 ? capitalizeFirstLetter(replacement) : replacement;
+    searchInput.value = words.join(" ");
+  }
+
+  function capitalizeFirstLetter(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+  searchInput.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      const totalSuggestions = suggestionBox.children.length;
+
+      if (totalSuggestions > 0) {
+        if (event.key === "ArrowDown") {
+          activeSuggestionIndex = (activeSuggestionIndex + 1) % totalSuggestions;
+        } else if (event.key === "ArrowUp") {
+          activeSuggestionIndex = (activeSuggestionIndex - 1 + totalSuggestions) % totalSuggestions;
+        }
+        highlightActiveSuggestion();
+      }
+    } else if (event.key === "Enter") {
+      if (activeSuggestionIndex !== -1) {
+        const selectedSuggestion = suggestionBox.children[activeSuggestionIndex];
+        replaceLastWord(selectedSuggestion.textContent);
+        suggestionBox.style.display = "none";
+      }
       activeSuggestionIndex = -1;
     }
-  }
-});
+  });
 
-function highlightActiveSuggestion() {
-  const suggestions = suggestionBox.children;
-  for (let i = 0; i < suggestions.length; i++) {
-    if (i === activeSuggestionIndex) {
-      suggestions[i].classList.add("active");
-    } else {
-      suggestions[i].classList.remove("active");
+  function highlightActiveSuggestion() {
+    const suggestions = suggestionBox.children;
+    for (let i = 0; i < suggestions.length; i++) {
+      if (i === activeSuggestionIndex) {
+        suggestions[i].classList.add("active");
+      } else {
+        suggestions[i].classList.remove("active");
+      }
     }
   }
-}
 
-document.addEventListener("click", function (event) {
-  if (!event.target.closest(".searchbar-container")) {
-    suggestionBox.style.display = "none";
-  }
-});
-
-function isPartialMatch(suggestion, currentWord) {
-  return suggestion.indexOf(currentWord) === 0 || suggestion.includes(" " + currentWord);
-}
-
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".searchbar-container")) {
+      suggestionBox.style.display = "none";
+    }
+  });
 });
