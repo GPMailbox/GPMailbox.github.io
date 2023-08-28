@@ -1,6 +1,23 @@
 import json
 import io
 
+ascii_art = r'''
+GPMailbox wordFilter
+
+ ckKK0              okKK0KKKKKKKKKKKK0
+  cXMM0     oo     kWWWNxoxxxxxxxxxxxd
+   dWMWk   0MM0   oWWWWx           
+    kWMWd:0MMWW0   KWWO XNNk  KKKKKK0
+     0MMWNWMWWMW0  cOO  cWMM  xxxxxxd
+      XMMMMWxdNMW0      cNMW    
+       KXXXx  dXXXx     KXXx    
+   
+
+Opération éffectué !
+'''    
+
+print(ascii_art)
+
 def remove_duplicates(input_list):
     unique_words = set()
     output_list = []
