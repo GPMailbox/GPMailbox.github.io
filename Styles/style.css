@@ -33,6 +33,7 @@ body {
     margin-left: auto;
     display: flex;
     text-align: center;
+    max-height: 60px;
 }
 
 .cart-icon,
@@ -42,7 +43,7 @@ body {
 .message-icon {
     font-size: 30px;
     margin-left: 10px; 
-    margin-right: 20px;
+    margin-right: 10px;
     color: #242443;
     transition: color 0.3s;
 }
@@ -77,12 +78,13 @@ body {
 }
 
 .icon-label {
-    font-size: 12px;
-    color: #333;
-    margin-top: 5px;
-    text-align: center;
-    position: relative;
-    top: -5px; /* Ajustez cette valeur pour centrer les libellés */
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+  height: 1px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sidebar-button {
