@@ -124,6 +124,7 @@
                 </div>
             </div>
         </div>
+        
         </div>
     </nav>
 
@@ -145,6 +146,16 @@
     </div>
     <div class="suggestion-box" id="suggestions"></div>
   </div>
+
+  <div class="carousel-center">
+  <div id="carousel-container">
+    <div id="carousel">
+      <a href="https://gpmailbox.github.io/"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071493726449834/image.png" alt="Image 1"></a>
+      <a href="https://gpmailbox.github.io/"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071611594780712/image.png" alt="Image 2"></a>
+      <a href="https://gpmailbox.github.io/"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071745904771157/image.png" alt="Image 3"></a>
+    </div>
+  </div>
+</div>
 
     <div class="trend-container">
         <i class="fas fa-home section-icon"></i>
@@ -548,5 +559,14 @@ document.addEventListener('DOMContentLoaded', function() {
     personalizeButton.addEventListener('click', redirectToCustomize);
 });
 
+const carousel = document.getElementById('carousel');
+    let position = 0;
+
+    function slideNext() {
+      position = (position + 1000 + carousel.offsetWidth) % carousel.offsetWidth;
+      carousel.style.transform = `translateX(-${position}px)`;
+    }
+
+    setInterval(slideNext, 5000);
 </script>
 </html>
