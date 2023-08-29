@@ -56,20 +56,3 @@ function toggleSearch() {
         searchInput.focus();
     }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    const accountIcon = document.getElementById('accountIcon');
-    const dropdownContentAccount = accountIcon.querySelector('.dropdown-content-account');
-    const sidebar = document.querySelector('.sidebar');
-
-    accountIcon.addEventListener('mouseenter', () => {
-        dropdownContentAccount.style.display = 'block';
-    });
-
-    sidebar.addEventListener('mouseleave', (event) => {
-        const isHoveringSidebar = event.relatedTarget && event.relatedTarget.closest('.sidebar');
-        if (!isHoveringSidebar) {
-            dropdownContentAccount.style.display = 'none';
-        }
-    });
-});
