@@ -34,6 +34,25 @@
 }
 </style>
 <body>
+
+    <div class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <img src="Elements/logo.png" alt="Logo GPMailbox">
+            </div>
+            <div class="popup-text">
+                <p>La protection de votre expérience sur GPMailbox est une priorité. C'est pourquoi nous utilisons des technologies avancées pour vous offrir nos services, les adapter à vos besoins, analyser les tendances et améliorer votre utilisation.</p>
+                <p>Conformément à votre accord explicite, nous collectons et traitons des informations relatives à votre interaction avec notre site (comme les préférences de thème, les pages visitées, etc.). Ces informations sont traitées par GPMailbox pour améliorer nos services et faciliter votre exploration.</p>
+                <p>En cliquant sur "Accepter", vous consentez à l'utilisation de ces technologies pour les finalités susmentionnées. Vous avez également la possibilité de personnaliser vos préférences en cliquant sur "Personnaliser", ou de choisir de ne pas participer en sélectionnant "Continuer sans participer". Vous pouvez à tout moment revoir vos choix en accédant à la section "Politique de confidentialité" située en bas de chaque page.</p>
+            </div>
+            <div class="popup-buttons">
+                <button class="btn-continue">Continuer sans participer</button>
+                <button class="btn-personalize">Personnaliser</button>
+                <button class="btn-accept">Accepter</button>
+            </div>
+        </div>
+    </div>    
+    
     <nav class="sidebar">
         <div class="sphere-decor">
             <div class="sphere"></div>
@@ -498,5 +517,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+function closePopup() {
+    var popup = document.querySelector('.popup');
+    popup.style.display = 'none';
+}
+
+function redirectToCustomize() {
+    window.location.href = 'Pages/privacy-policy.html';
+}
+
+function showPopupOnLoad() {
+    var popup = document.querySelector('.popup');
+    var referrer = document.referrer;
+    
+    if (!referrer) {
+        popup.style.display = 'flex';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    showPopupOnLoad();
+    
+    var acceptButton = document.querySelector('.btn-accept');
+    var continueButton = document.querySelector('.btn-continue');
+    var personalizeButton = document.querySelector('.btn-personalize');
+    
+    acceptButton.addEventListener('click', closePopup);
+    continueButton.addEventListener('click', closePopup);
+    personalizeButton.addEventListener('click', redirectToCustomize);
+});
+
 </script>
 </html>

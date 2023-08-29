@@ -683,3 +683,66 @@ background-color: #50a3fb;
 .goog-te-gadget-simple .goog-te-menu-frame {
     color: white !important;
 }
+
+.popup {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(245, 242, 242, 0.8); 
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; 
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.popup-header img {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Style des boutons */
+.popup-buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.popup-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-personalize {
+  background-color: #5500ff;
+  color: white;
+}
+
+.btn-accept {
+  background-color: #007BFF;
+  color: white;
+}
+
+.btn-continue {
+  margin-right: 60px;
+  background-color: #ff4343;
+  color: white;
+}
+
+.popup-buttons button:hover {
+  background-color: #555;
+}

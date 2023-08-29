@@ -1,7 +1,7 @@
 import os
 import json
 from translate import Translator
-from tqdm import tqdm 
+import time
 
 ascii_art = r''' 
 GPMailbox wordTranslator
@@ -18,7 +18,6 @@ GPMailbox wordTranslator
 
 print(ascii_art)
 
-
 with open('suggestions.json', 'r', encoding='utf-8-sig') as file:
     data = json.load(file)
     suggestions = data['suggestions']
@@ -30,20 +29,29 @@ output_directory = 'Translated'
 os.makedirs(output_directory, exist_ok=True)
 
 for lang in languages:
+    lang_output_filename = os.path.join(output_directory, f'suggestions_{lang}.json')
+    if not os.path.exists(lang_output_filename):
+        with open(lang_output_filename, 'w', encoding='utf-8') as lang_output_file:
+            json.dump({'suggestions': []}, lang_output_file, ensure_ascii=False, indent=2)
+
+for lang in languages:
     print(f"Traduction vers {lang} en cours...")
     
-    translated_suggestions = []
-    with tqdm(total=len(suggestions), desc=f"Progress ({lang})", unit="word") as pbar:
-        for word in suggestions:
-            translator = Translator(from_lang='fr', to_lang=lang)
-            translation = translator.translate(word)
-            translated_suggestions.append(translation)
-            pbar.update(1)
+    lang_output_filename = os.path.join(output_directory, f'suggestions_{lang}.json')
+    with open(lang_output_filename, 'r', encoding='utf-8') as lang_output_file:
+        lang_translations = json.load(lang_output_file)['suggestions']
     
-    translated_data = {'suggestions': translated_suggestions}
-    
-    output_filename = os.path.join(output_directory, f'suggestions_{lang}.json')
-    with open(output_filename, 'w', encoding='utf-8') as output_file:
-        json.dump(translated_data, output_file, ensure_ascii=False, indent=2)
+    for idx, word in enumerate(suggestions):
+        if idx < len(lang_translations):
+            continue
         
-    print(f'Translated suggestions to {lang} and saved as {output_filename}')
+        translator = Translator(from_lang='fr', to_lang=lang)
+        translation = translator.translate(word)
+        
+        lang_translations.append((word, translation))
+        
+        with open(lang_output_filename, 'w', encoding='utf-8') as lang_output_file:
+            json.dump({'suggestions': lang_translations}, lang_output_file, ensure_ascii=False, indent=2)
+        
+        print(f"[{word} fr] => [{translation} {lang}]")
+        time.sleep(0.5)
