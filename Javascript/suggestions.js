@@ -4662,134 +4662,104 @@ document.addEventListener("DOMContentLoaded", function () {
         "Îles Cook",
         "Îles Marshall",
         "Îles Salomon"
-  ];
-  let activeSuggestionIndex = -1;
-  let lastInput = "";
+      ];
 
-  searchInput.addEventListener("input", function () {
-    const inputText = searchInput.value.trim();
-    suggestionBox.innerHTML = "";
-
-    if (inputText) {
-      const matchingSuggestions = suggestions.filter(suggestion => {
-        return suggestion.toLowerCase().startsWith(inputText.toLowerCase());
-      });
-
-      if (matchingSuggestions.length > 0) {
-        matchingSuggestions.forEach((suggestion, index) => {
-          const suggestionElement = createSuggestionElement(suggestion, index);
-          suggestionBox.appendChild(suggestionElement);
-        });
-
-        suggestionBox.style.display = "block";
-        lastInput = inputText;
-      } else {
-        suggestionBox.style.display = "none";
-        suggestNextWords(inputText);
-      }
-    } else {
-      suggestionBox.style.display = "none";
-    }
-  });
-
-  function suggestNextWords(currentInput) {
-    const inputWords = currentInput.split(" ");
-    const nextWords = suggestions.filter(suggestion => {
-      const lowerSuggestion = suggestion.toLowerCase();
-      return inputWords.every(word => lowerSuggestion.includes(word.toLowerCase()));
-    });
-
-    nextWords.forEach((suggestion, index) => {
-      const suggestionElement = createSuggestionElement(suggestion, index);
-      suggestionBox.appendChild(suggestionElement);
-    });
-
-    if (nextWords.length > 0) {
-      suggestionBox.style.display = "block";
-    } else {
-      suggestionBox.style.display = "none";
-      suggestLastWord(inputWords[inputWords.length - 1]);
-    }
-  }
-
-  function suggestLastWord(lastWord) {
-    const matchingLastWordSuggestions = suggestions.filter(suggestion => {
-      return suggestion.toLowerCase().startsWith(lastWord.toLowerCase());
-    });
-
-    matchingLastWordSuggestions.forEach((suggestion, index) => {
-      const suggestionElement = createSuggestionElement(suggestion, index);
-      suggestionBox.appendChild(suggestionElement);
-    });
-
-    if (matchingLastWordSuggestions.length > 0) {
-      suggestionBox.style.display = "block";
-    } else {
-      suggestionBox.style.display = "none";
-    }
-  }
-
-  function createSuggestionElement(suggestion, index) {
-    const suggestionElement = document.createElement("div");
-    suggestionElement.classList.add("suggestion");
-    suggestionElement.textContent = suggestion;
-
-    suggestionElement.addEventListener("click", function () {
-      replaceLastWord(suggestion);
-      suggestionBox.style.display = "none";
-    });
-
-    suggestionElement.addEventListener("mouseenter", function () {
-      activeSuggestionIndex = index;
-      highlightActiveSuggestion();
-    });
-
-    return suggestionElement;
-  }
-
-  function replaceLastWord(replacement) {
-    const words = searchInput.value.split(" ");
-    words[words.length - 1] = replacement;
-    searchInput.value = words.join(" ");
-  }
-
-  searchInput.addEventListener("keydown", function (event) {
-    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
-      event.preventDefault();
-      const totalSuggestions = suggestionBox.children.length;
-
-      if (totalSuggestions > 0) {
-        if (event.key === "ArrowDown") {
-          activeSuggestionIndex = (activeSuggestionIndex + 1) % totalSuggestions;
-        } else if (event.key === "ArrowUp") {
-          activeSuggestionIndex = (activeSuggestionIndex - 1 + totalSuggestions) % totalSuggestions;
+      let activeSuggestionIndex = -1;
+      let lastInput = "";
+    
+      searchInput.addEventListener("input", function () {
+        const inputText = searchInput.value.trim();
+        suggestionBox.innerHTML = "";
+    
+        if (inputText) {
+          const inputWords = inputText.split(" ");
+          const lastWord = inputWords[inputWords.length - 1];
+    
+          if (lastWord) {
+            lastInput = inputText;
+    
+            const matchingSuggestions = suggestions.filter(suggestion => {
+              return suggestion.toLowerCase().startsWith(lastWord.toLowerCase());
+            });
+    
+            if (matchingSuggestions.length > 0) {
+              matchingSuggestions.forEach((suggestion, index) => {
+                const suggestionElement = createSuggestionElement(suggestion, index);
+                suggestionBox.appendChild(suggestionElement);
+              });
+    
+              suggestionBox.style.display = "block";
+            } else {
+              suggestionBox.style.display = "none";
+            }
+          } else {
+            suggestionBox.style.display = "none";
+          }
+        } else {
+          suggestionBox.style.display = "none";
         }
-        highlightActiveSuggestion();
+      });
+    
+      function createSuggestionElement(suggestion, index) {
+        const suggestionElement = document.createElement("div");
+        suggestionElement.classList.add("suggestion");
+        suggestionElement.textContent = suggestion;
+    
+        suggestionElement.addEventListener("click", function () {
+          replaceLastWord(suggestion);
+          suggestionBox.style.display = "none";
+        });
+    
+        suggestionElement.addEventListener("mouseenter", function () {
+          activeSuggestionIndex = index;
+          highlightActiveSuggestion();
+        });
+    
+        return suggestionElement;
       }
-    } else if (event.key === "Enter") {
-      if (activeSuggestionIndex !== -1) {
-        const selectedSuggestion = suggestionBox.children[activeSuggestionIndex];
-        replaceLastWord(selectedSuggestion.textContent);
-        suggestionBox.style.display = "none";
+    
+      function replaceLastWord(replacement) {
+        const newInput = lastInput.replace(/\S+$/, replacement);
+        searchInput.value = newInput;
       }
-      activeSuggestionIndex = -1;
-    }
-  });
-
-  function highlightActiveSuggestion() {
-    const suggestions = suggestionBox.children;
-    for (let i = 0; i < suggestions.length; i++) {
-      if (i === activeSuggestionIndex) {
-        suggestions[i].classList.add("active");
-      } else {
-        suggestions[i].classList.remove("active");
+    
+      searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+          event.preventDefault();
+          const totalSuggestions = suggestionBox.children.length;
+    
+          if (totalSuggestions > 0) {
+            if (event.key === "ArrowDown") {
+              activeSuggestionIndex = (activeSuggestionIndex + 1) % totalSuggestions;
+            } else if (event.key === "ArrowUp") {
+              activeSuggestionIndex = (activeSuggestionIndex - 1 + totalSuggestions) % totalSuggestions;
+            }
+            highlightActiveSuggestion();
+          }
+        } else if (event.key === "Enter") {
+          if (activeSuggestionIndex !== -1) {
+            const selectedSuggestion = suggestionBox.children[activeSuggestionIndex];
+            replaceLastWord(selectedSuggestion.textContent);
+            suggestionBox.style.display = "none";
+          }
+          activeSuggestionIndex = -1;
+        }
+      });
+    
+      function highlightActiveSuggestion() {
+        const suggestions = suggestionBox.children;
+        for (let i = 0; i < suggestions.length; i++) {
+          if (i === activeSuggestionIndex) {
+            suggestions[i].classList.add("active");
+          } else {
+            suggestions[i].classList.remove("active");
+          }
+        }
       }
-    }
-  }
-
-  document.addEventListener("click", function (event) {
-    if (!event.target.closest(".searchbar-container")) {
-      suggestionBox.style.display = "none";
-    }
-  });
-});
+    
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest(".searchbar-container")) {
+          suggestionBox.style.display = "none";
+        }
+      });
+    });
