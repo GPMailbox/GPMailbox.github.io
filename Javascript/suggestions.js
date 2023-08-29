@@ -4663,7 +4663,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Îles Marshall",
         "Îles Salomon"
   ];
-
   let activeSuggestionIndex = -1;
   let lastInput = "";
 
@@ -4750,12 +4749,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function replaceLastWord(replacement) {
     const words = searchInput.value.split(" ");
-    words[words.length - 1] = words.length === 1 ? capitalizeFirstLetter(replacement) : replacement;
+    words[words.length - 1] = replacement;
     searchInput.value = words.join(" ");
-  }
-
-  function capitalizeFirstLetter(word) {
-    return word.charAt(0).toUpperCase() + word.slice(1);
   }
 
   searchInput.addEventListener("keydown", function (event) {
