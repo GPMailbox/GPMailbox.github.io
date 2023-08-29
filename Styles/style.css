@@ -728,7 +728,7 @@ background-color: #50a3fb;
 }
 
 .btn-personalize {
-  background-color: #5500ff;
+  background-color: #8181ff; 
   color: white;
 }
 
@@ -739,10 +739,11 @@ background-color: #50a3fb;
 
 .btn-continue {
   margin-right: 60px;
-  background-color: #ff4343;
+  background-color: #db4764;
   color: white;
 }
 
 .popup-buttons button:hover {
   background-color: #555;
 }
+ 
