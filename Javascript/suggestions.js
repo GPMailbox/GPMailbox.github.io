@@ -4664,102 +4664,113 @@ document.addEventListener("DOMContentLoaded", function () {
         "Îles Salomon"
       ];
 
-      let activeSuggestionIndex = -1;
-      let lastInput = "";
+        let activeSuggestionIndex = -1;
+        let lastInput = "";
     
-      searchInput.addEventListener("input", function () {
-        const inputText = searchInput.value.trim();
-        suggestionBox.innerHTML = "";
+        searchInput.addEventListener("input", function () {
+            activeSuggestionIndex = -1;
+            suggestionBox.innerHTML = "";
     
-        if (inputText) {
-          const inputWords = inputText.split(" ");
-          const lastWord = inputWords[inputWords.length - 1];
+            const inputText = searchInput.value.trim();
+            
+            if (inputText) {
+                const inputWords = inputText.split(" ");
+                const lastWord = inputWords[inputWords.length - 1];
     
-          if (lastWord) {
-            lastInput = inputText;
+                if (lastWord) {
+                    lastInput = inputText;
     
-            const matchingSuggestions = suggestions.filter(suggestion => {
-              return suggestion.toLowerCase().startsWith(lastWord.toLowerCase());
+                    const matchingSuggestions = suggestions.filter(suggestion => {
+                        const suggestionWords = suggestion.toLowerCase().split(" ");
+                        return suggestionWords.some(word => word.startsWith(lastWord.toLowerCase()));
+                    });
+    
+                    if (matchingSuggestions.length > 0) {
+                        const sortedSuggestions = sortSuggestionsByLength(matchingSuggestions);
+    
+                        sortedSuggestions.forEach((suggestion, index) => {
+                            const suggestionElement = createSuggestionElement(suggestion, index);
+                            suggestionBox.appendChild(suggestionElement);
+                        });
+    
+                        suggestionBox.style.display = "block";
+                    } else {
+                        suggestionBox.style.display = "none";
+                    }
+                } else {
+                    suggestionBox.style.display = "none";
+                }
+            } else {
+                suggestionBox.style.display = "none";
+            }
+        });
+    
+        function sortSuggestionsByLength(suggestions) {
+            return suggestions.slice().sort((a, b) => a.length - b.length);
+        }
+    
+        function createSuggestionElement(suggestion, index) {
+            const suggestionElement = document.createElement("div");
+            suggestionElement.classList.add("suggestion");
+            suggestionElement.textContent = suggestion;
+    
+            suggestionElement.addEventListener("click", function () {
+                replaceMatchingWords(suggestion);
+                suggestionBox.style.display = "none";
             });
     
-            if (matchingSuggestions.length > 0) {
-              matchingSuggestions.forEach((suggestion, index) => {
-                const suggestionElement = createSuggestionElement(suggestion, index);
-                suggestionBox.appendChild(suggestionElement);
-              });
+            suggestionElement.addEventListener("mouseenter", function () {
+                activeSuggestionIndex = index;
+                highlightActiveSuggestion();
+            });
     
-              suggestionBox.style.display = "block";
-            } else {
-              suggestionBox.style.display = "none";
-            }
-          } else {
-            suggestionBox.style.display = "none";
-          }
-        } else {
-          suggestionBox.style.display = "none";
+            return suggestionElement;
         }
-      });
     
-      function createSuggestionElement(suggestion, index) {
-        const suggestionElement = document.createElement("div");
-        suggestionElement.classList.add("suggestion");
-        suggestionElement.textContent = suggestion;
+        function replaceMatchingWords(replacement) {
+            const inputWords = lastInput.split(" ");
+            const lastWord = inputWords[inputWords.length - 1];
+            const newInput = lastInput.replace(new RegExp(lastWord + "$"), replacement);
+            searchInput.value = newInput;
+        }
     
-        suggestionElement.addEventListener("click", function () {
-          replaceLastWord(suggestion);
-          suggestionBox.style.display = "none";
+        searchInput.addEventListener("keydown", function (event) {
+            if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+                event.preventDefault();
+                const totalSuggestions = suggestionBox.children.length;
+    
+                if (totalSuggestions > 0) {
+                    if (event.key === "ArrowDown") {
+                        activeSuggestionIndex = (activeSuggestionIndex + 1) % totalSuggestions;
+                    } else if (event.key === "ArrowUp") {
+                        activeSuggestionIndex = (activeSuggestionIndex - 1 + totalSuggestions) % totalSuggestions;
+                    }
+                    highlightActiveSuggestion();
+                }
+            } else if (event.key === "Enter") {
+                if (activeSuggestionIndex !== -1) {
+                    const selectedSuggestion = suggestionBox.children[activeSuggestionIndex];
+                    replaceMatchingWords(selectedSuggestion.textContent);
+                    suggestionBox.style.display = "none";
+                }
+                activeSuggestionIndex = -1;
+            }
         });
     
-        suggestionElement.addEventListener("mouseenter", function () {
-          activeSuggestionIndex = index;
-          highlightActiveSuggestion();
-        });
-    
-        return suggestionElement;
-      }
-    
-      function replaceLastWord(replacement) {
-        const newInput = lastInput.replace(/\S+$/, replacement);
-        searchInput.value = newInput;
-      }
-    
-      searchInput.addEventListener("keydown", function (event) {
-        if (event.key === "ArrowDown" || event.key === "ArrowUp") {
-          event.preventDefault();
-          const totalSuggestions = suggestionBox.children.length;
-    
-          if (totalSuggestions > 0) {
-            if (event.key === "ArrowDown") {
-              activeSuggestionIndex = (activeSuggestionIndex + 1) % totalSuggestions;
-            } else if (event.key === "ArrowUp") {
-              activeSuggestionIndex = (activeSuggestionIndex - 1 + totalSuggestions) % totalSuggestions;
+        function highlightActiveSuggestion() {
+            const suggestions = suggestionBox.children;
+            for (let i = 0; i < suggestions.length; i++) {
+                if (i === activeSuggestionIndex) {
+                    suggestions[i].classList.add("active");
+                } else {
+                    suggestions[i].classList.remove("active");
+                }
             }
-            highlightActiveSuggestion();
-          }
-        } else if (event.key === "Enter") {
-          if (activeSuggestionIndex !== -1) {
-            const selectedSuggestion = suggestionBox.children[activeSuggestionIndex];
-            replaceLastWord(selectedSuggestion.textContent);
-            suggestionBox.style.display = "none";
-          }
-          activeSuggestionIndex = -1;
         }
-      });
     
-      function highlightActiveSuggestion() {
-        const suggestions = suggestionBox.children;
-        for (let i = 0; i < suggestions.length; i++) {
-          if (i === activeSuggestionIndex) {
-            suggestions[i].classList.add("active");
-          } else {
-            suggestions[i].classList.remove("active");
-          }
-        }
-      }
-    
-      document.addEventListener("click", function (event) {
-        if (!event.target.closest(".searchbar-container")) {
-          suggestionBox.style.display = "none";
-        }
-      });
+        document.addEventListener("click", function (event) {
+            if (!event.target.closest(".searchbar-container")) {
+                suggestionBox.style.display = "none";
+            }
+        });
     });
