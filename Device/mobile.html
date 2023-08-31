@@ -79,5 +79,20 @@ menuBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
   sidebar.style.left = '-300px';
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const popupContainer = document.querySelector('.popup-container');
+  const btnAccept = document.querySelector('.btn-accept');
+  const btnContinue = document.querySelector('.btn-continue');
+
+  btnAccept.addEventListener('click', function() {
+    popupContainer.style.display = 'none';
+  });
+
+  btnContinue.addEventListener('click', function() {
+    popupContainer.style.display = 'none';
+  });
+});
+
 </script>
 </html>

@@ -1,6 +1,13 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main {
+    flex: 1;
   }
   
   header {
@@ -119,4 +126,8 @@ body {
     font-size: 0; 
     height: 60px; 
     overflow: hidden; 
+  }
+
+  footer {
+    flex-shrink: 0;
   }
