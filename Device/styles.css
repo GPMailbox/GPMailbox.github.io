@@ -44,6 +44,8 @@ body {
     transition: left 0.3s ease;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    max-height: calc(100% - 80px);
   }
   
   .sidebar ul {
@@ -115,10 +117,10 @@ body {
   }
 
   .account-sidebar {
-    position: absolute;
-    left: 0;
+    position: relative;
     width: 100%;
     text-align: center;
+    margin-bottom: 20px;
   }
   
   .spacer-text {

@@ -37,6 +37,24 @@
       <li><a href="#"><i class="fas fa-bell"></i>  Notifications</a></li>
       <li><a href="#"><i class="fas fa-heart"></i>  Favoris</a></li>
       <li><a href="#"><i class="fas fa-shopping-basket"></i>  Panier</a></li>
+      <div class="separator"></div>
+
+    <li><a href="#"><i class="fas fa-chair"></i> Meubles</a></li>
+    <li><a href="#"><i class="fas fa-tshirt"></i> Vêtements</a></li>
+    <li><a href="#"><i class="fas fa-laptop"></i> Électronique</a></li>
+    <li><a href="#"><i class="fas fa-bicycle"></i> Sports et Loisirs</a></li>
+    <li><a href="#"><i class="fas fa-book"></i> Livres</a></li>
+    <li><a href="#"><i class="fas fa-car"></i> Automobile</a></li>
+    <li><a href="#"><i class="fas fa-guitar"></i> Instruments de musique</a></li>
+    <li><a href="#"><i class="fas fa-cutlery"></i> Cuisine et Alimentation</a></li>
+    <li><a href="#"><i class="fas fa-paint-brush"></i> Art et Artisanat</a></li>
+    <li><a href="#"><i class="fas fa-tools"></i> Outils et Bricolage</a></li>
+    <li><a href="#"><i class="fas fa-tooth"></i> Santé et Beauté</a></li>
+    <li><a href="#"><i class="fas fa-gamepad"></i> Jeux vidéo</a></li>
+    <li><a href="#"><i class="fas fa-baby"></i> Bébés et Enfants</a></li>
+    <li><a href="#"><i class="fas fa-camera"></i> Appareils photo</a></li>
+    <li><a href="#"><i class="fas fa-music"></i> Équipement audio</a></li>
+    <li><a href="#"><i class="fas fa-paw"></i> Animaux </a></li>
 
       <div class="account-sidebar">
       <div class="separator"></div>
@@ -75,14 +93,18 @@
 const menuBtn = document.getElementById('menuBtn');
 const sidebar = document.getElementById('sidebar');
 const closeBtn = document.getElementById('closeBtn');
+const body = document.body;
 
 menuBtn.addEventListener('click', () => {
   sidebar.style.left = '0';
+  body.style.overflow = 'hidden';
 });
 
 closeBtn.addEventListener('click', () => {
   sidebar.style.left = '-300px';
+  body.style.overflow = 'auto';
 });
+
 
 document.addEventListener('DOMContentLoaded', function() {
   const popupContainer = document.querySelector('.popup-container');
@@ -97,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
     popupContainer.style.display = 'none';
   });
 });
+
 
 </script>
 </html>
