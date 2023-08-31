@@ -80,6 +80,7 @@ body {
 
 
 .popup-container {
+    position: absolute;
     width: 90%;
     margin: 0 auto;
     padding: 20px;
@@ -150,3 +151,60 @@ body {
     margin-right: 10px;
   }
   
+  .searchbarbig {
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 16px;
+    background-color: #ededed;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .searchbarbig input[type="text"] {
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 30px;
+    width: 100%;
+    color: #007BFF;
+    background-color: #ededed;
+  }
+  
+  .searchbarbig button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 8px;
+    color: #007BFF;
+  }
+  
+  /* Styles pour la boîte de suggestions */
+  .suggestion-box {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.578); 
+    backdrop-filter: blur(15px);
+    border: 1px solid gray;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1;
+    margin-top: 5px;
+    left: 10px; 
+    right: 10px; 
+    display: none;
+    border-radius: 10px;
+  }
+  
+  .suggestion {
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .suggestion:hover {
+    background-color: #007BFF;
+    color: white;
+  }
