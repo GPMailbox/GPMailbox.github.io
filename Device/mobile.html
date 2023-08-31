@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="script.js" defer></script>
+  <title>Mon Site</title>
+</head>
+<body>
+  <header>
+    <div class="menu-btn" id="menuBtn">
+        <i class="fas fa-bars"></i>
+      </div>
+      
+  <nav class="sidebar" id="sidebar">
+    <div class="close-btn" id="closeBtn">&times;</div>
+    <ul>
+
+      <li><a href="#"><i class="fas fa-home"></i>  Accueil</a></li>
+      <li><a href="#"><i class="fas fa-envelope"></i>  Messages</a></li>
+      <li><a href="#"><i class="fas fa-bell"></i>  Notifications</a></li>
+      <li><a href="#"><i class="fas fa-heart"></i>  Favoris</a></li>
+      <li><a href="#"><i class="fas fa-shopping-basket"></i>  Panier</a></li>
+
+      <div class="separator"></div>
+        <a href="Pages/sign-up.html"><i class="fas fa-plus"></i> S'inscrire</a>
+        <a href="Pages/log-in.html"><i class="fas fa-user-circle"></i> Se connecter</a>
+    </ul>
+  </nav>
+      <div class="logo-container">
+        <div class="logo">
+            <img src="../Elements/logo.png" alt="Logo">
+        </div>
+    </div>
+  </header>
+  
+  <div class="popup-container">
+    <div class="popup-text">
+        <p>Votre expérience sur GPMailbox est notre priorité. Nous utilisons des technologies avancées pour adapter nos services à vos besoins, analyser les tendances et améliorer votre utilisation.</p>
+        <p>En accord avec vos préférences, nous collectons et traitons des informations sur votre interaction avec notre site, comme les préférences de thème et les pages visitées. GPMailbox utilise ces données pour améliorer ses services et faciliter votre exploration.</p>
+        <p>En cliquant sur "Accepter", vous consentez à l'utilisation de ces technologies pour les objectifs mentionnés. Vous pouvez personnaliser vos préférences en cliquant sur "Personnaliser" ou choisir de ne pas participer en sélectionnant "Continuer sans participer". À tout moment, vous pouvez revoir vos choix dans la section "Politique de confidentialité" en bas de chaque page.</p>
+    </div>
+    <div class="separator"></div>
+    <div class="popup-buttons">
+        <button class="btn-continue">Continuer sans participer</button>
+        <button class="btn-personalize">Personnaliser</button>
+        <button class="btn-accept">Accepter</button>
+    </div>
+</div>
+
+  
+  <main>
+    <!-- Votre contenu principal ici -->
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 Mon Site. Tous les droits sont réservés.</p>
+  </footer>
+</body>
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+const closeBtn = document.getElementById('closeBtn');
+
+menuBtn.addEventListener('click', () => {
+  sidebar.style.left = '0';
+});
+
+closeBtn.addEventListener('click', () => {
+  sidebar.style.left = '-300px';
+});
+</script>
+</html>

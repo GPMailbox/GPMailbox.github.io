@@ -8,42 +8,42 @@
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="text/javascript">
         function googleTranslateElementInit() {
-          new google.translate.TranslateElement({ pageLanguage: 'fr' }, 'google_translate_element');
+            new google.translate.TranslateElement({ pageLanguage: 'fr' }, 'google_translate_element');
         }
-      </script>
+    </script>
     <script src="Javascript/script.js"></script>
     <script src="Javascript/suggestions.js"></script>
     <title>GPMailbox</title>
     <link rel="icon" type="image/x-icon" href="Elements/icon.ico">
 </head>
-<style> 
-  @keyframes fade-in-out {
-    0% {
-      opacity: 0;
+<style>
+    @keyframes fade-in-out {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
-    100% {
-      opacity: 1;
+
+    body > * {
+        animation: fade-in-out 1s ease-in-out;
     }
-  }
-  
-  body > * {
-    animation: fade-in-out 1s ease-in-out;
-  }
+
     a {
-    text-decoration: none;
-}
+        text-decoration: none;
+    }
 </style>
 <body>
-
     <div class="popup">
         <div class="popup-content">
             <div class="popup-header">
                 <img src="Elements/logo.png" alt="Logo GPMailbox">
             </div>
             <div class="popup-text">
-                <p>La protection de votre expérience sur GPMailbox est une priorité. C'est pourquoi nous utilisons des technologies avancées pour vous offrir nos services, les adapter à vos besoins, analyser les tendances et améliorer votre utilisation.</p>
-                <p>Conformément à votre accord explicite, nous collectons et traitons des informations relatives à votre interaction avec notre site (comme les préférences de thème, les pages visitées, etc.). Ces informations sont traitées par GPMailbox pour améliorer nos services et faciliter votre exploration.</p>
-                <p>En cliquant sur "Accepter", vous consentez à l'utilisation de ces technologies pour les finalités susmentionnées. Vous avez également la possibilité de personnaliser vos préférences en cliquant sur "Personnaliser", ou de choisir de ne pas participer en sélectionnant "Continuer sans participer". Vous pouvez à tout moment revoir vos choix en accédant à la section "Politique de confidentialité" située en bas de chaque page.</p>
+                <p>Votre expérience sur GPMailbox est notre priorité. Nous utilisons des technologies avancées pour adapter nos services à vos besoins, analyser les tendances et améliorer votre utilisation.</p>
+                <p>En accord avec vos préférences, nous collectons et traitons des informations sur votre interaction avec notre site, comme les préférences de thème et les pages visitées. GPMailbox utilise ces données pour améliorer ses services et faciliter votre exploration.</p>
+                <p>En cliquant sur "Accepter", vous consentez à l'utilisation de ces technologies pour les objectifs mentionnés. Vous pouvez personnaliser vos préférences en cliquant sur "Personnaliser" ou choisir de ne pas participer en sélectionnant "Continuer sans participer". À tout moment, vous pouvez revoir vos choix dans la section "Politique de confidentialité" en bas de chaque page.</p>
             </div>
             <div class="popup-buttons">
                 <button class="btn-continue">Continuer sans participer</button>
@@ -52,7 +52,6 @@
             </div>
         </div>
     </div>    
-    
     <nav class="sidebar">
         <div class="sphere-decor">
             <div class="sphere"></div>
@@ -62,15 +61,16 @@
         <div class="logo">
             <a href="#"><img id="logo" src="Elements/logo.png" alt="Logo"></a>
         </div>
-        <a href="Pages/ad-create.html"><button class="sidebar-button blue-bg"><i class="fas fa-plus"></i> Déposer une annonce</button></a>
+        <a href="Pages/ad-create.html"><button class="sidebar-button blue-bg"><i class="fas fa-plus"></i> Déposer Annonce</button></a>
         <div class="search-container">
             <button class="search-button" id="searchButton" onclick="toggleSearch()">
                 <i class="fas fa-search"></i> Rechercher
             </button>
-            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher...">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search...">
         </div>
-
         <div class="dropdown">
+            <button class="dropdown-button">Categories <i class="fas fa-caret-down"></i></button>
+            <div class="dropdown-content">
             <button class="dropdown-button">Catégories <i class="fas fa-caret-down"></i></button>
             <div class="dropdown-content">
                 <a href="#"><i class="fas fa-chair"></i> Meubles</a>
@@ -568,5 +568,15 @@ const carousel = document.getElementById('carousel');
     }
 
     setInterval(slideNext, 5000);
+
+    
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+if (isMobileDevice()) {
+    window.location.href = 'Device/mobile.html'; 
+}
+
 </script>
 </html>
