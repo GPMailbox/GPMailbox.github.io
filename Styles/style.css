@@ -759,6 +759,7 @@ input[type="submit"]:hover {
 #carousel-container {
   position: relative;
   width: 1000px;
+  max-width: 100%;
   height: 200px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.21);
@@ -772,9 +773,17 @@ input[type="submit"]:hover {
 }
 
 #carousel img {
-  width: 1000px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  #carousel-container {
+    max-width: 100%; 
+    height: 100px;
+    width: 500px;
+  }
 }
 
 /* Styles pour le basculement et la personnalisation */
