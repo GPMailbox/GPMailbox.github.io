@@ -10,6 +10,9 @@ body {
     align-items: center;
     padding: 10px 20px;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.192);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
   }
   
   .menu-btn {
@@ -100,7 +103,7 @@ body {
 .separator {
     width: 100%;
     height: 1px;
-    background-color: #e0e0e0;
+    background-color: #007BFF;
     margin: 10px 0;
   }
 
@@ -109,6 +112,11 @@ body {
     left: 0;
     width: 100%;
     text-align: center;
-    margin-top: 90%;
+    margin-top: 10px;
   }
   
+  .spacer-text {
+    font-size: 0; 
+    height: 60px; 
+    overflow: hidden; 
+  }
