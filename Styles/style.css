@@ -1,11 +1,12 @@
 body {
     background-color:#ffffff; 
-    color: #333; /* Couleur de texte plus sombre */
+    color: #333; 
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
+    color: #242443;
 }
 
 .sidebar {
@@ -16,7 +17,7 @@ body {
     padding: 0 20px;
     color: #242443;
     position: relative;
-    overflow: visible; /* Ajustement de la propriété overflow */
+    overflow: visible; 
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.192);
     position: fixed;
     width: 100%;
@@ -142,7 +143,7 @@ background-color: #50a3fb;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 99;
     top: 100%;
-    right: 10; /* Changez 'left' en 'right' pour déplacer le dropdown vers la gauche */
+    right: 10;
     width: max-content; 
     border-radius: 5px;
 }
@@ -201,7 +202,7 @@ background-color: #50a3fb;
     border-radius: 20px;
     margin: 20px;
     background: linear-gradient(135deg, #ffae00, #ff0080);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06); /* Ombre pour la profondeur et les reflets */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06); 
 }
 
 .section-container {
@@ -379,8 +380,8 @@ background-color: #50a3fb;
 .BigLogoGwada {
     position: relative;
     top: 50%;
-    left: calc(50% - 150px); /* Ajustez cette valeur à la moitié de la largeur de l'image */
-    width: 300px; /* Ajustez la taille de l'image selon vos besoins */
+    left: calc(50% - 150px);
+    width: 300px; 
     height: auto;
 }
 
@@ -500,23 +501,23 @@ background-color: #50a3fb;
     justify-content: center;
     padding: 10px 15px;
     border: none;
-    border-radius: 50px; /* Utilisation d'un grand rayon pour rendre le bouton arrondi */
+    border-radius: 50px; 
     font-size: 14px;
     font-weight: bold;
     color: #fff;
     cursor: pointer;
-    width: 100%; /* Pour assurer la même largeur */
+    width: 100%; 
     transition: background-color 0.3s, transform 0.2s;
-    text-align: left; /* Ajustement du texte à gauche */
+    text-align: left; 
     margin-bottom: 20px;
 }
 
 .google-button {
-    background-color: #DB4437; /* Couleur de Google */
+    background-color: #DB4437; 
 }
 
 .facebook-button {
-    background-color: #4267B2; /* Couleur de Facebook */
+    background-color: #4267B2; 
 }
 
 .google-button i,
@@ -526,7 +527,7 @@ background-color: #50a3fb;
 
 .google-button:hover,
 .facebook-button:hover {
-    background-color: #3b3b3b; /* Couleur de survol légèrement plus sombre */
+    background-color: #3b3b3b; 
     transform: scale(1.05);
 }
 
@@ -774,4 +775,76 @@ background-color: #50a3fb;
   width: 1000px;
   height: 200px;
   object-fit: cover;
+}
+
+.toggle-matrix-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto; 
+  max-width: 600px; 
+  padding: 20px;
+}
+
+.toggle-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.205);
+  border-radius: 10px;
+  color: #242443;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle {
+  display: none;
+  height: 40px;
+}
+
+.toggle-button {
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-button:before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease;
+}
+
+.toggle:checked + .toggle-button {
+  background-color: #007BFF;
+}
+
+.toggle:checked + .toggle-button:before {
+  transform: translateX(20px);
+}
+
+.matrix-effect {
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.4;
+  white-space: pre;
+}
+
+.matrix-effect-container{
+  z-index: 0;
 }

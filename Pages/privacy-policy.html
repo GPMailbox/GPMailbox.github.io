@@ -44,9 +44,103 @@
     
         <p>Pour toute question concernant notre politique de confidentialité, veuillez nous contacter à admin@gpmailbox.fr.</p>
     
+        <h1>Personnaliser les paramètres :</h1>
+
+        <div class="toggle-matrix-container">
+        <div class="toggle-container">
+          <div class="toggle-item">
+            <label>Cookies</label>
+            <input type="checkbox" class="toggle" id="toggle-cookies" checked>
+            <div class="toggle-button"></div>
+          </div>
+          <div class="toggle-item">
+            <label>Collecte de données</label>
+            <input type="checkbox" class="toggle" id="toggle-data-collection" checked>
+            <div class="toggle-button"></div>
+          </div>
+          <div class="toggle-item">
+            <label>Partage d'informations</label>
+            <input type="checkbox" class="toggle" id="toggle-information-sharing" checked>
+            <div class="toggle-button"></div>
+          </div>          
+            <pre class="matrix-effect"></pre>
+        </div>
+      </div>
         <div class="button-container">
             <a href="https://gpmailbox.github.io" class="continue-button">Continuer</a>
         </div>
     </div>    
 </body>
+<script>
+const matrixEffect = document.querySelector('.matrix-effect');
+
+const asciiArt = [
+  "         .;;.                                                ",
+  "       ;dxddxd;                                              ",
+  "      c0l.  .o0:                                             ",
+  "  .,co0K;    :Kl                                             ",
+  " 'kOocod:',:dKXxcod;......................................  ",
+  " lXc    'kNNMMMWWWWXKKKKKKKKKKKKKKKKKKKKKKKKKKKKXNNXXKK0K0; ",
+  " 'xOocox:',:dKXxcod;'..''''''''''''''''''''':dkOXMMWKkkl;'. ",
+  "  .,co0K;    :Kc                            .kWMMMMMMMNl    ",
+  "      c0l.  .o0:                            'OWXOXWK0NWo.   ",
+  "       ;dxddxd;                             'OXo,dKc;OXo.   ",
+  "         .;;.                                .'. .'...'.     "
+];
+
+const getRandomChar = () => {
+  const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?";
+  return characters[Math.floor(Math.random() * characters.length)];
+};
+
+matrixEffect.innerHTML = asciiArt
+  .map(line => {
+    const charArray = line.split('');
+    return charArray
+      .map((char, index) => `<span class="char-${index}">${char}</span>`)
+      .join('');
+  })
+  .join('\n');
+
+const characters = matrixEffect.querySelectorAll('span');
+
+characters.forEach(char => {
+  setInterval(() => {
+    if (char.textContent !== ' ') {
+      char.textContent = getRandomChar();
+    }
+  }, Math.random() * 2000);
+});
+
+
+characters.forEach(char => {
+  char.style.setProperty('--rand-delay', Math.random());
+  char.style.color = getRandomColor();
+  setInterval(() => {
+    if (char.textContent !== ' ') {
+      char.style.color = getRandomColor();
+    }
+  }, 1000);
+});
+
+function getRandomColor() {
+  const colors = [
+    '#007BFF',
+    '#0059A1',
+    '#00A8FF',
+    '#00417A',
+    '#00C9FF'
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+const toggleButtons = document.querySelectorAll('.toggle-button');
+
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const checkbox = button.previousElementSibling;
+      checkbox.checked = !checkbox.checked;
+    });
+  });
+</script>
 </html>
