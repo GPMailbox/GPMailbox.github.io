@@ -11,41 +11,47 @@
 <div class="carousel-center">
     <div id="carousel-container">
         <div id="carousel">
-            <a href="https://gpmailbox.github.io/"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071493726449834/image.png" alt="Image 1"></a>
-            <a href="https://gpmailbox.github.io/"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071611594780712/image.png" alt="Image 2"></a>
-            <a href="https://gpmailbox.github.io/"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071745904771157/image.png" alt="Image 3"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071493726449834/image.png" alt="Image 1"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071611594780712/image.png" alt="Image 2"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071745904771157/image.png" alt="Image 3"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071493726449834/image.png" alt="Image 4"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071611594780712/image.png" alt="Image 5"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071745904771157/image.png" alt="Image 6"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071493726449834/image.png" alt="Image 7"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071611594780712/image.png" alt="Image 8"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071745904771157/image.png" alt="Image 9"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071493726449834/image.png" alt="Image 10"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071611594780712/image.png" alt="Image 11"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071745904771157/image.png" alt="Image 12"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071493726449834/image.png" alt="Image 13"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071611594780712/image.png" alt="Image 14"></a>
+            <a href="https://gpmailbox.github.io/" target="_blank"><img src="https://media.discordapp.net/attachments/1146071476072615986/1146071745904771157/image.png" alt="Image 15"></a>
         </div>
     </div>
 </div>
 
 <script>
 const carousel = document.getElementById('carousel');
-const interval = 5000;
+    const images = document.querySelectorAll('#carousel img');
+    const interval = 5000;
+    let currentIndex = 0;
 
-function slideNext() {
-  const carouselImages = document.querySelectorAll('#carousel img');
-  const imageWidth = carouselImages[0].clientWidth;
-  const transitionDuration = 1500;
+    function slideNext() {
+      currentIndex = (currentIndex + 1) % images.length;
+      const offset = -currentIndex * (100 / images.length); // Calcul de l'offset
+      carousel.style.transition = 'transform 1.5s ease-in-out';
+      carousel.style.transform = `translateX(${offset}%)`;
+    }
 
-  carousel.style.transition = `transform ${transitionDuration}ms ease-in-out`;
-  carousel.style.transform = `translateX(-${imageWidth / 1}px)`;
+    setInterval(slideNext, interval);
 
-  setTimeout(() => {
-    carousel.style.transition = 'none';
-    carousel.style.transform = 'none';
-    const firstSlide = carousel.firstElementChild;
-    carousel.appendChild(firstSlide);
-  }, transitionDuration);
-}
-
-setInterval(slideNext, interval);
-
-carousel.addEventListener('transitionend', () => {
-  if (carousel.style.transform === 'none') {
-    carousel.style.transform = 'translateX(0)';
-  }
-});
-
+    carousel.addEventListener('transitionend', () => {
+      if (currentIndex === images.length) {
+        currentIndex = 0;
+        carousel.style.transition = 'none';
+        carousel.style.transform = 'translateX(0)';
+      }
+    });
 </script>
 </body>
 </html>

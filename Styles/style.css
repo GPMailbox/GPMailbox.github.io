@@ -769,7 +769,7 @@ input[type="submit"]:hover {
 
 #carousel {
   display: flex;
-  width: 3000px; 
+  width: 1500%;
   transition: transform 1.5s ease;
 }
 
@@ -785,9 +785,6 @@ input[type="submit"]:hover {
       height: auto;
       width: 500px;
       border-radius: 0px;
-  }
-  #carousel{
-    width: 300%;
   }
   .carousel-center{
     margin-top: 20px;
