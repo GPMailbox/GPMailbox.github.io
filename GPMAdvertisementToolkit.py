@@ -1,0 +1,122 @@
+import tkinter as tk
+from tkinter import ttk
+from tkinter import filedialog
+from tkinter import messagebox
+
+class ImageManagerApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Gestionnaire d'Images")
+        self.root.geometry("800x600")
+
+        self.frame = tk.Frame(root, padx=20, pady=20)
+        self.frame.pack(fill=tk.BOTH, expand=True)
+
+        self.style = ttk.Style()
+        self.style.configure('TButton', font=('Helvetica', 12), padding=10)
+        self.style.configure('TLabel', font=('Helvetica', 12), padding=10)
+
+        self.images = []  # Vous pouvez stocker les images ici
+
+        self.preview_label = tk.Label(self.frame, text="Aperçu des images")
+        self.preview_label.grid(row=0, column=0, columnspan=3)
+
+        self.canvas = tk.Canvas(self.frame, width=600, height=300)
+        self.canvas.grid(row=1, column=0, columnspan=3)
+
+        self.add_button = ttk.Button(self.frame, text="Ajouter une image", command=self.add_image)
+        self.add_button.grid(row=2, column=0, padx=10, pady=10)
+
+        self.remove_button = ttk.Button(self.frame, text="Supprimer une image", command=self.remove_image)
+        self.remove_button.grid(row=2, column=1, padx=10, pady=10)
+
+        self.replace_button = ttk.Button(self.frame, text="Remplacer une image", command=self.replace_image)
+        self.replace_button.grid(row=2, column=2, padx=10, pady=10)
+
+        self.load_css_button = ttk.Button(self.frame, text="Charger style.css", command=self.load_css)
+        self.load_css_button.grid(row=3, column=0, padx=10, pady=10)
+
+        self.load_html_button = ttk.Button(self.frame, text="Charger advertisement.html", command=self.load_html)
+        self.load_html_button.grid(row=3, column=1, padx=10, pady=10)
+
+        self.update_button = ttk.Button(self.frame, text="Mettre à jour les fichiers", command=self.update_files)
+        self.update_button.grid(row=3, column=2, padx=10, pady=10)
+
+        self.load_css()
+        self.load_html()
+        self.update_preview()
+
+    def add_image(self):
+        image_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg;*.gif")])
+        if image_path:
+            self.images.append(image_path)
+            messagebox.showinfo("Information", f"Image ajoutée : {image_path}")
+            self.update_preview()
+
+    def remove_image(self):
+        if self.images:
+            choice = messagebox.askinteger("Supprimer une image", f"Saisissez un numéro d'image à supprimer (1-{len(self.images)}):", minvalue=1, maxvalue=len(self.images))
+            if choice:
+                try:
+                    removed_image = self.images.pop(choice - 1)
+                    messagebox.showinfo("Information", f"Image supprimée : {removed_image}")
+                    self.update_preview()
+                except IndexError:
+                    messagebox.showerror("Erreur", "Numéro d'image invalide.")
+
+    def replace_image(self):
+        if self.images:
+            choice = messagebox.askinteger("Remplacer une image", f"Saisissez un numéro d'image à remplacer (1-{len(self.images)}):", minvalue=1, maxvalue=len(self.images))
+            if choice:
+                try:
+                    new_image_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg;*.gif")])
+                    if new_image_path:
+                        self.images[choice - 1] = new_image_path
+                        messagebox.showinfo("Information", f"Image remplacée : {new_image_path}")
+                        self.update_preview()
+                except IndexError:
+                    messagebox.showerror("Erreur", "Numéro d'image invalide.")
+
+    def load_css(self):
+        self.css_content = ""
+        css_path = filedialog.askopenfilename(filetypes=[("CSS Files", "*.css")])
+        if css_path:
+            with open(css_path, "r") as css_file:
+                self.css_content = css_file.read()
+            messagebox.showinfo("Information", f"style.css chargé : {css_path}")
+
+    def load_html(self):
+        self.html_content = ""
+        html_path = filedialog.askopenfilename(filetypes=[("HTML Files", "*.html")])
+        if html_path:
+            with open(html_path, "r") as html_file:
+                self.html_content = html_file.read()
+            messagebox.showinfo("Information", f"advertisement.html chargé : {html_path}")
+
+    def update_preview(self):
+        self.canvas.delete("all")
+        x, y = 10, 10
+        for image_path in self.images:
+            image = tk.PhotoImage(file=image_path)
+            self.canvas.create_image(x, y, anchor=tk.NW, image=image)
+            x += 120  # Ajuster la position en x pour afficher la prochaine image
+
+    def update_files(self):
+    # Mettre à jour style.css
+    with open("style.css", "w") as css_file:
+        css_file.write(self.css_content)
+
+    # Mettre à jour advertisement.html
+    updated_html = self.html_content
+    for i, image_path in enumerate(self.images, start=1):
+        img_tag = f'<a href="https://gpmailbox.github.io/" target="_blank"><img src="{image_path}" alt="Image {i}"></a>'
+        # Remplacez l'ancienne balise d'image par la nouvelle balise dans advertisement.html
+        updated_html = updated_html.replace(f'<!-- Image {i} -->', img_tag)
+
+    with open("advertisement.html", "w") as html_file:
+        html_file.write(updated_html)
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = ImageManagerApp(root)
+    root.mainloop()
