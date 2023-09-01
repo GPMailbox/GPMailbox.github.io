@@ -16,16 +16,14 @@
     </div>
   </div>
 </div>
-<style>
-  
-</style>
+
 <script>
 
 const carousel = document.getElementById('carousel');
     let position = 0;
 
     function slideNext() {
-      position = (position + 1000 + carousel.offsetWidth) % carousel.offsetWidth;
+      position = (position + 500 + carousel.offsetWidth) % carousel.offsetWidth;
       carousel.style.transform = `translateX(-${position}px)`;
     }
 
@@ -40,7 +38,7 @@ function applyMobileZoom() {
   
   if (isMobileScreen()) {
     carouselImages.forEach(image => {
-      image.style.transform = 'scale(0.5)';
+      image.style.transform = 'scale(1)';
     });
   } else {
     carouselImages.forEach(image => {

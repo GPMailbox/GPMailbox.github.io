@@ -782,7 +782,10 @@ input[type="submit"]:hover {
   #carousel-container {
     max-width: 100%; 
     height: 100px;
-    width: 500px;
+    width: 100%;
+  }
+  #carousel{
+    width: 1500px;
   }
 }
 
