@@ -3,6 +3,47 @@ from tkinter import ttk
 from tkinter import filedialog
 from tkinter import messagebox
 
+class AdvertisementManager:
+    def __init__(self):
+        self.css_content = ""
+        self.html_content = ""
+        self.images = []
+
+    def add_advertisement(self, link, img_path, alt_text):
+        self.images.append((link, img_path, alt_text))
+
+    def delete_advertisement(self, index):
+        if 0 <= index < len(self.images):
+            del self.images[index]
+
+    def edit_advertisement(self, index, link, img_path, alt_text):
+        if 0 <= index < len(self.images):
+            self.images[index] = (link, img_path, alt_text)
+
+    def load_css(self):
+        css_path = filedialog.askopenfilename(filetypes=[("CSS Files", "*.css")])
+        if css_path:
+            with open(css_path, "r") as css_file:
+                self.css_content = css_file.read()
+
+    def load_html(self):
+        html_path = filedialog.askopenfilename(filetypes=[("HTML Files", "*.html")])
+        if html_path:
+            with open(html_path, "r") as html_file:
+                self.html_content = html_file.read()
+
+    def update_files(self):
+        with open("style.css", "w") as css_file:
+            css_file.write(self.css_content)
+
+        updated_html = self.html_content
+        for i, (link, img_path, alt_text) in enumerate(self.images, start=1):
+            img_tag = f'<a href="{link}" target="_blank"><img src="{img_path}" alt="{alt_text}"></a>'
+            updated_html = updated_html.replace(f'<!-- Image {i} -->', img_tag)
+
+        with open("advertisement.html", "w") as html_file:
+            html_file.write(updated_html)
+
 class ImageManagerApp:
     def __init__(self, root):
         self.root = root
@@ -16,7 +57,7 @@ class ImageManagerApp:
         self.style.configure('TButton', font=('Helvetica', 12), padding=10)
         self.style.configure('TLabel', font=('Helvetica', 12), padding=10)
 
-        self.images = []  # Vous pouvez stocker les images ici
+        self.images_manager = AdvertisementManager()
 
         self.preview_label = tk.Label(self.frame, text="Aperçu des images")
         self.preview_label.grid(row=0, column=0, columnspan=3)
@@ -49,72 +90,50 @@ class ImageManagerApp:
     def add_image(self):
         image_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg;*.gif")])
         if image_path:
-            self.images.append(image_path)
+            self.images_manager.add_advertisement("https://gpmailbox.github.io/", image_path, f"Image {len(self.images_manager.images)}")
             messagebox.showinfo("Information", f"Image ajoutée : {image_path}")
             self.update_preview()
 
     def remove_image(self):
-        if self.images:
-            choice = messagebox.askinteger("Supprimer une image", f"Saisissez un numéro d'image à supprimer (1-{len(self.images)}):", minvalue=1, maxvalue=len(self.images))
-            if choice:
-                try:
-                    removed_image = self.images.pop(choice - 1)
-                    messagebox.showinfo("Information", f"Image supprimée : {removed_image}")
-                    self.update_preview()
-                except IndexError:
-                    messagebox.showerror("Erreur", "Numéro d'image invalide.")
+        index = self.get_selected_index()
+        if index is not None:
+            self.images_manager.delete_advertisement(index)
+            self.update_preview()
 
     def replace_image(self):
-        if self.images:
-            choice = messagebox.askinteger("Remplacer une image", f"Saisissez un numéro d'image à remplacer (1-{len(self.images)}):", minvalue=1, maxvalue=len(self.images))
-            if choice:
-                try:
-                    new_image_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg;*.gif")])
-                    if new_image_path:
-                        self.images[choice - 1] = new_image_path
-                        messagebox.showinfo("Information", f"Image remplacée : {new_image_path}")
-                        self.update_preview()
-                except IndexError:
-                    messagebox.showerror("Erreur", "Numéro d'image invalide.")
+        index = self.get_selected_index()
+        if index is not None:
+            new_image_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg;*.gif")])
+            if new_image_path:
+                self.images_manager.edit_advertisement(index, "https://gpmailbox.github.io/", new_image_path, f"Image {index + 1}")
+                messagebox.showinfo("Information", f"Image remplacée : {new_image_path}")
+                self.update_preview()
+
+    def get_selected_index(self):
+        selection = self.canvas.find_withtag("current")
+        if selection:
+            return int(self.canvas.gettags(selection[0])[0]) - 1
+        return None
 
     def load_css(self):
-        self.css_content = ""
-        css_path = filedialog.askopenfilename(filetypes=[("CSS Files", "*.css")])
-        if css_path:
-            with open(css_path, "r") as css_file:
-                self.css_content = css_file.read()
-            messagebox.showinfo("Information", f"style.css chargé : {css_path}")
+        self.images_manager.load_css()
+        messagebox.showinfo("Information", f"style.css chargé")
 
     def load_html(self):
-        self.html_content = ""
-        html_path = filedialog.askopenfilename(filetypes=[("HTML Files", "*.html")])
-        if html_path:
-            with open(html_path, "r") as html_file:
-                self.html_content = html_file.read()
-            messagebox.showinfo("Information", f"advertisement.html chargé : {html_path}")
+        self.images_manager.load_html()
+        messagebox.showinfo("Information", f"advertisement.html chargé")
 
     def update_preview(self):
         self.canvas.delete("all")
         x, y = 10, 10
-        for image_path in self.images:
-            image = tk.PhotoImage(file=image_path)
+        for i, (link, img_path, alt_text) in enumerate(self.images_manager.images, start=1):
+            image = tk.PhotoImage(file=img_path)
             self.canvas.create_image(x, y, anchor=tk.NW, image=image)
-            x += 120  # Ajuster la position en x pour afficher la prochaine image
+            self.canvas.addtag_withtag(str(i))
+            x += 120
 
     def update_files(self):
-    # Mettre à jour style.css
-    with open("style.css", "w") as css_file:
-        css_file.write(self.css_content)
-
-    # Mettre à jour advertisement.html
-    updated_html = self.html_content
-    for i, image_path in enumerate(self.images, start=1):
-        img_tag = f'<a href="https://gpmailbox.github.io/" target="_blank"><img src="{image_path}" alt="Image {i}"></a>'
-        # Remplacez l'ancienne balise d'image par la nouvelle balise dans advertisement.html
-        updated_html = updated_html.replace(f'<!-- Image {i} -->', img_tag)
-
-    with open("advertisement.html", "w") as html_file:
-        html_file.write(updated_html)
+        self.images_manager.update_files()
 
 if __name__ == "__main__":
     root = tk.Tk()
