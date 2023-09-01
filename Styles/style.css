@@ -754,6 +754,7 @@ input[type="submit"]:hover {
   align-items: center;
   height: 40vh;
   margin: 0;
+  margin-top: 100px;
 }
 
 #carousel-container {
@@ -780,12 +781,16 @@ input[type="submit"]:hover {
 
 @media (max-width: 768px) {
   #carousel-container {
-    max-width: 100%; 
-    height: auto;
-    width: 100%;
+    max-width: 100%;
+      height: auto;
+      width: 500px;
+      border-radius: 0px;
   }
   #carousel{
     width: 300%;
+  }
+  .carousel-center{
+    margin-top: 20px;
   }
 }
 
