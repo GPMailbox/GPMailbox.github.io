@@ -781,11 +781,11 @@ input[type="submit"]:hover {
 @media (max-width: 768px) {
   #carousel-container {
     max-width: 100%; 
-    height: 100px;
+    height: auto;
     width: 100%;
   }
   #carousel{
-    width: 1500px;
+    width: 300%;
   }
 }
 
