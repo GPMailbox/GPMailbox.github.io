@@ -33,9 +33,9 @@ body {
   
   .sidebar {
     position: fixed;
-    left: -100%;
+    left: -300px;
     top: 0;
-    width: 100%;
+    width: 300px;
     height: 100%;
     background-color: rgba(245, 242, 242, 0.897); 
     backdrop-filter: blur(10px);
