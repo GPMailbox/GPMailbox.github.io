@@ -80,13 +80,12 @@ body {
 
 
 .popup-container {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
-    margin: 0 auto;
     background-color: rgba(245, 242, 242, 0.8); 
     backdrop-filter: blur(10px);
-    z-index: 1;
+    z-index: 1000;
 }
 
 .popup-text {
@@ -220,6 +219,7 @@ body {
     padding: 20px;
     background-color: #ededed;
     z-index: 0;
+    position: relative;
 }
 
 .image-container {
