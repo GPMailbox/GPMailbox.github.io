@@ -769,7 +769,7 @@ input[type="submit"]:hover {
 
 #carousel {
   display: flex;
-  width: 1500%; /* taille du carousel, exemple : 1500% = 15 images*/
+  width: 1500%; /* taille du carousel, exemple : 1500% = 15*/
   transition: transform 1.5s ease;
 }
 
