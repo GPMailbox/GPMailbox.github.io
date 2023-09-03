@@ -785,6 +785,7 @@ input[type="submit"]:hover {
       height: auto;
       width: 500px;
       border-radius: 0px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0);
   }
   .carousel-center{
     margin-top: 20px;
