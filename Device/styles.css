@@ -210,67 +210,70 @@ body {
     color: white;
   }
 
-/* Styles pour la grille d'images */
 .image-grid {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 20px;
-    padding: 20px;
-    background-color: #ededed;
-    z-index: 0;
-    position: relative;
+    overflow-x: scroll;
+    gap: 10px;
+    padding: 10px;
+    white-space: nowrap;
 }
 
 .image-container {
-    position: relative;
-    min-width: 150px;
-    text-align: center;
-    border-radius: 50%;
-    overflow: hidden;
+  background-color: rgba(27, 59, 98, 0.6);
+  min-width: 220px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
 }
 
-.image-container img {
-    max-width: 100%;
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    object-fit: cover;
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
 
 .letter-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    font-weight: bold;
-    background-color: #fff;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.3);
+    top: 10px;
+    left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.511);
+    backdrop-filter: blur(5px)
 }
 
-/* Styles pour le texte des catégories */
 .image-overlay {
-    background-color: #00000091;
-    backdrop-filter: blur(5px);
-    color: #fff;
-    padding: 5px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 1;
-    transition: opacity 0.3s;
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  width: 100%;
+  padding: 10px; 
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(27, 59, 98, 0));
 }
 
 .image-overlay-text {
-    font-size: 14px;
-    margin: 0;
+  margin: 0;
+  color: white;
+  text-shadow: 2px 2px 8px rgb(0, 0, 0);
+}
+
+
+/* Style de la barre de défilement */
+::-webkit-scrollbar {
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 /* Style pour le bouton "Show All" (supprimé) */
@@ -283,31 +286,23 @@ body {
     display: none;
 }
 
-.trend-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100px;
-  font-size: 24px;
-}
-
-.category{
-  color: #ff6f00;
-  z-index: 0;
-}
-
+.trend-container,
 .city-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100px;
-  font-size: 24px;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px;
+  color: #fff;
 }
 
-.city{
-  color: #007BFF;
+.trend-container {
+  background: linear-gradient(135deg, #ffae00, #ff0080);
+}
+
+.city-container {
+  background: linear-gradient(135deg, #3300ff, #00b3ff);
 }
 
 .center-rot-container {
@@ -363,4 +358,8 @@ body {
   justify-content: center;
   text-align: center;
   align-items: center;
+}
+
+.fa-text-icon{
+  margin-right: 5px;
 }
