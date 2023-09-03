@@ -222,7 +222,7 @@ body {
   background-color: rgba(27, 59, 98, 0.6);
   min-width: 220px;
   height: 150px;
-  border-radius: 10px;
+  border-radius: 7px;
   overflow: hidden;
   position: relative;
 }
@@ -293,7 +293,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 100px;
   margin: 20px;
   color: #fff;
 }
