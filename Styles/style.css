@@ -427,7 +427,7 @@ body {
   border: 1px solid #242443;
   border-radius: 50px;
   padding: 8px 16px;
-  background-color: #fff;
+  background-color: #f0f5f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-left: 150px;
   margin-right: 150px;
@@ -439,7 +439,7 @@ body {
   padding: 8px;
   font-size: 30px;
   width: 100%;
-  color: #007BFF;
+  color: #4e5c69;
 }
 
 .searchbarbig button {
