@@ -564,9 +564,13 @@
     <div class="section-title">Récemment regardé</div>
 </div>
 
-<a id="download-link" href="../Elements/GPMailbox.apk" download>
-  <img src="../Advertisement/Ad-pics/Download.jpg" alt="Télécharger le fichier" style="width: 90%; height: auto; margin: 20px; border-radius: 10px;">
-</a>
+<div class="android">
+  <div class="dl-container">
+    <a id="download-link" href="../Elements/GPMailbox.apk" download>
+    <div class="fa-text-icon"><i class="fas fa-download section-icon"></i></div>
+    <div class="section-title">Application Android</div>
+  </a>
+</div>
 
   </main>
   <footer>
@@ -605,26 +609,5 @@ document.addEventListener('DOMContentLoaded', function() {
     popupContainer.style.display = 'none';
   });
 });
-
-function detectAPK() {
-            var userAgent = navigator.userAgent;
-            return /Android/i.test(userAgent) && !/Firefox/i.test(userAgent);
-        }
-
-        function hideElementIfAPK() {
-            if (detectAPK()) {
-                var downloadLink = document.getElementById("download-link");
-                if (downloadLink) {
-                    downloadLink.style.display = "none";
-                }
-            }
-        }
-
-        window.onload = hideElementIfAPK;
-</script>
-<script>
-  if (navigator.userAgent.indexOf("Android") > -1 && navigator.userAgent.indexOf("Firefox") == -1) {
-      document.getElementById("download-link").style.display = "none";
-  }
 </script>
 </html>
