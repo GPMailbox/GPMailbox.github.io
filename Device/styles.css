@@ -145,7 +145,7 @@ body {
 
 .separator {
     width: 100%;
-    height: 1px;
+    height: 2px;
     background-color: #007BFF;
     margin: 10px 0;
   }
