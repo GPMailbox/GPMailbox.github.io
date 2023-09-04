@@ -622,4 +622,9 @@ function detectAPK() {
 
         window.onload = hideElementIfAPK;
 </script>
+<script>
+  if (navigator.userAgent.indexOf("Android") > -1 && navigator.userAgent.indexOf("Firefox") == -1) {
+      document.getElementById("download-link").style.display = "none";
+  }
+</script>
 </html>
