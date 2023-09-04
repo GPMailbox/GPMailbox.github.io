@@ -22,6 +22,26 @@ body {
     z-index: 1000;
   }
   
+  .header-second {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.192);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    bottom: 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .header-second a{
+    margin-right: 50px;
+    font-size: 35px;
+    color: #242443;
+  }
+
   .menu-btn {
     cursor: pointer;
     display: flex;
@@ -37,7 +57,7 @@ body {
     top: 0;
     width: 300px;
     height: 100%;
-    background-color: rgba(245, 242, 242, 0.712); 
+    background-color: rgba(245, 242, 242, 0.829); 
     backdrop-filter: blur(10px);
     color: #242443;
     padding-top: 80px;
@@ -75,9 +95,20 @@ body {
 .logo img {
     width: 250px;
     height: auto;
-    margin-left: 20px;
+    margin-left: 30px;
   }
 
+.logo-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-visible {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
 .popup-container {
     position: fixed;
