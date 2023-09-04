@@ -36,6 +36,9 @@ body {
     box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.192);
   }
 
+  .header-second a{
+    margin-right: 20px;
+  }
   .menu-btn {
     display: flex;
     flex-direction: column;
