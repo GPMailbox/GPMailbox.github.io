@@ -606,13 +606,13 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-function detectBrowser() {
-            var isBrowser = /Android/.test(navigator.userAgent) && !/Firefox/.test(navigator.userAgent);
-            return isBrowser;
+function detectAPK() {
+            var userAgent = navigator.userAgent;
+            return /Android/i.test(userAgent) && !/Firefox/i.test(userAgent);
         }
 
-        function hideElementIfNotBrowser() {
-            if (!detectBrowser()) {
+        function hideElementIfAPK() {
+            if (detectAPK()) {
                 var downloadLink = document.getElementById("download-link");
                 if (downloadLink) {
                     downloadLink.style.display = "none";
@@ -620,6 +620,6 @@ function detectBrowser() {
             }
         }
 
-        window.onload = hideElementIfNotBrowser;
+        window.onload = hideElementIfAPK;
 </script>
 </html>

@@ -400,3 +400,6 @@ body {
   margin-right: 5px;
 }
 
+#download-link {
+  display: block;
+}
