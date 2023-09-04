@@ -42,7 +42,7 @@ body {
   }
 
   .header-second a{
-    margin-right: 20px;
+    margin-right: 40px;
   }
   .menu-btn {
     display: flex;
@@ -109,18 +109,6 @@ body {
     height: auto;
     margin-left: 30px;
   }
-
-.logo-hidden {
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.logo-visible {
-    transform: translateY(0);
-    opacity: 1;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
 
 .popup-container {
     position: fixed;
@@ -203,8 +191,8 @@ body {
     border-radius: 20px;
     padding: 8px 16px;
     background-color: #f0f5f9;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 20px;
   }
   
   .searchbarbig input[type="text"] {
