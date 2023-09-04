@@ -613,15 +613,14 @@ document.addEventListener('DOMContentLoaded', function() {
 var headerSecond = document.querySelector(".header-second");
 
 menuBtn.addEventListener("click", function () {
-  if (headerSecond.classList.contains("hidden")) {
-    headerSecond.classList.remove("hidden");
-  } else {
-    headerSecond.classList.add("hidden");
-  }
+  headerSecond.style.transition = "transform 0.5s ease"; 
+  headerSecond.style.transform = "translateY(100%)"; 
 });
 
 closeBtn.addEventListener("click", function () {
-  headerSecond.classList.remove("hidden");
+  headerSecond.style.transition = "transform 0.5s ease";
+  headerSecond.style.transform = "translateY(0%)"; 
 });
+
 </script>
 </html>

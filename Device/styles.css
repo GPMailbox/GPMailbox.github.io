@@ -34,6 +34,11 @@ body {
     text-align: center;
     justify-content: center;
     box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.192);
+    transition: height 0.3s ease-in-out;
+  }
+  
+  .hidden {
+    height: 0;
   }
 
   .header-second a{
