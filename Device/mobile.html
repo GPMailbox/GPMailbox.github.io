@@ -609,5 +609,19 @@ document.addEventListener('DOMContentLoaded', function() {
     popupContainer.style.display = 'none';
   });
 });
+
+var headerSecond = document.querySelector(".header-second");
+
+menuBtn.addEventListener("click", function () {
+  if (headerSecond.classList.contains("hidden")) {
+    headerSecond.classList.remove("hidden");
+  } else {
+    headerSecond.classList.add("hidden");
+  }
+});
+
+closeBtn.addEventListener("click", function () {
+  headerSecond.classList.remove("hidden");
+});
 </script>
 </html>
