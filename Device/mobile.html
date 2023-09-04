@@ -564,7 +564,7 @@
     <div class="section-title">Récemment regardé</div>
 </div>
 
-<a href="../Elements/GPMailbox.apk" download>
+<a id="download-link" href="../Elements/GPMailbox.apk" download>
   <img src="../Advertisement/Ad-pics/Download.jpg" alt="Télécharger le fichier" style="width: 90%; height: auto; margin: 20px; border-radius: 10px;">
 </a>
 
@@ -606,26 +606,20 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-const header = document.getElementById('header');
-const logo = document.getElementById('logo');
+function detectBrowser() {
+            var isBrowser = /Android/.test(navigator.userAgent) && !/Firefox/.test(navigator.userAgent);
+            return isBrowser;
+        }
 
-let lastScrollPosition = window.pageYOffset;
+        function hideElementIfNotBrowser() {
+            if (!detectBrowser()) {
+                var downloadLink = document.getElementById("download-link");
+                if (downloadLink) {
+                    downloadLink.style.display = "none";
+                }
+            }
+        }
 
-window.addEventListener('scroll', () => {
-    const currentScrollPosition = window.pageYOffset;
-
-    if (currentScrollPosition > lastScrollPosition) {
-        // Faites défiler vers le bas
-        logo.classList.remove('logo-visible');
-        logo.classList.add('logo-hidden');
-    } else {
-        // Faites défiler vers le haut
-        logo.classList.remove('logo-hidden');
-        logo.classList.add('logo-visible');
-    }
-
-    lastScrollPosition = currentScrollPosition;
-});
-
+        window.onload = hideElementIfNotBrowser;
 </script>
 </html>
