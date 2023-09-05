@@ -9,7 +9,7 @@
   <script src="../Javascript/suggestions.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.21.0/font/bootstrap-icons.css" rel="stylesheet">
   <title>GPMailbox Mobile</title>
-  <link rel="icon" type="image/x-icon" href="../Elements/logov3.ico">
+  <link rel="icon" type="image/png" href="../Elements/logov4.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
@@ -17,7 +17,6 @@
     <div class="menu-btn" id="menuBtn">
       <i class="fas fa-bars"></i>
     </div>
-
     <div class="searchbar-container">
       <div class="searchbarbig">
         <input type="text" name="search" id="search" placeholder="Rechercher..." autocomplete="off">
@@ -59,6 +58,9 @@
         <li><a href="#"><i class="fas fa-camera"></i> Appareils photo</a></li>
         <li><a href="#"><i class="fas fa-music"></i> Équipement audio</a></li>
         <li><a href="#"><i class="fas fa-paw"></i> Animaux </a></li>
+        <div class="separator"></div>
+        <li><a href="#"><i class="fas fa-gavel"></i> Conditions d'utilisation </a></li>
+        <li><a href="#"><i class="fas fa-gavel"></i> Politique de confidentialité </a></li>
         <div class="account-sidebar">
           <div class="separator"></div>
           <a href="Pages/signin.html" class="login-link" style="color:#007bFF;">
@@ -265,9 +267,7 @@
     <div class="fa-text-icon"><i class="fas fa-city section-icon"></i></div>
     <div class="section-title">Par villes</div>
 </div>
-
   <div class="image-grid">
-
     <div class="image-container">
       <div class="letter-overlay"><i class="fas fa-map-marker-alt"></i></div>
       <img class="image" src="https://duflan.fr/wp-content/uploads/2020/01/vue-satellite-grande-terre-guadeloupe-jpg.jpg" alt="local">
@@ -541,12 +541,73 @@
     <div class="section-title">Récemment ajouté</div>
 </div>
 
+<div class="image-grid">
+<div class="product-container">
+    <div class="letter-overlay"><i class="fas fa-bicycle"></i></div>
+    <div class="city-overlay">Baie-Mahault</div>
+    <img class="image" src="https://media.discordapp.net/attachments/1146071476072615986/1148598779252068413/test-velo-mad-urbain-2-1-scaled.jpg?width=993&height=662">
+    <div class="image-overlay">
+        <p class="image-overlay-text">Test #1</p>
+        <p class="image-overlay-price">Prix €</p>
+    </div>
+</div>
+<div class="product-container">
+    <div class="letter-overlay"><i class="fas fa-camera"></i></div>
+    <div class="city-overlay">Deshaies</div>
+    <img class="image" src="https://media.discordapp.net/attachments/1146071476072615986/1148598779931541524/canon-eos_r100-garymorrisroe-ambient-50609-770x513.jpg">
+    <div class="image-overlay">
+        <p class="image-overlay-text">Test #2</p>
+        <p class="image-overlay-price">Prix €</p>
+    </div>
+</div>
+<div class="product-container">
+    <div class="letter-overlay"><i class="fas fa-gamepad"></i></div>
+    <div class="city-overlay">Pointe-Noire</div>
+    <img class="image" src="https://media.discordapp.net/attachments/1146071476072615986/1148598779491131493/raw.jpg">
+    <div class="image-overlay">
+        <p class="image-overlay-text">Test #3</p>
+        <p class="image-overlay-price">Prix €</p>
+    </div>
+</div>
+</div>
+
 <div class="seen">
   <div class="city-container">
     <div class="fa-text-icon"><i class="fas fa-history section-icon"></i></div>
     <div class="section-title">Récemment regardé</div>
 </div>
 
+<div class="image-grid">
+    <div class="product-container">
+        <div class="letter-overlay"><i class="fas fa-music"></i></div>
+        <div class="city-overlay">Pointe-à-Pitre</div>
+        <img class="image" src="https://media.discordapp.net/attachments/1146071476072615986/1148601027487072307/8155-BdB3hL._SL1500_.jpg">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Test #4</p>
+            <p class="image-overlay-price">Prix €</p>
+        </div>
+    </div>
+    <div class="product-container">
+        <div class="letter-overlay"><i class="fas fa-baby"></i></div>
+        <div class="city-overlay">Morne-à-l'eau</div>
+        <img class="image" src="https://media.discordapp.net/attachments/1146071476072615986/1148601027747139675/02-xylophone-jouet-enfant-1.jpg">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Test #5</p>
+            <p class="image-overlay-price">Prix €</p>
+        </div>
+    </div>
+    <div class="product-container">
+        <div class="letter-overlay"><i class="fas fa-paint-brush"></i></div>
+        <div class="city-overlay">Sainte-Rose</div>
+        <img class="image" src="https://media.discordapp.net/attachments/1146071476072615986/1148601028070092932/Kathleen_480x4802x.jpg">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Test #6</p>
+            <p class="image-overlay-price">Prix €</p>
+        </div>
+    </div>
+    </div>
+
+<!--
 <div class="android">
   <div class="dl-container">
     <a id="download-link" href="../Elements/GPMailbox.apk" download>
@@ -554,6 +615,7 @@
     <div class="section-title">Application Android</div>
   </a>
 </div>
+-->
 
   </main>
   <footer>
