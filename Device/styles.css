@@ -276,19 +276,31 @@ body {
 }
 
 .letter-overlay {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.511);
-    backdrop-filter: blur(5px)
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.511);
+  backdrop-filter: blur(5px)
+}
+
+.delivery-overlay {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background: conic-gradient(from -90deg, #7f6bff 0%, #1dd1a1 33%, #565cfd 66%, #7f6bff 100%);
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .city-overlay {
   position: absolute;
-  bottom: 10px;
+  bottom: 7px;
   right: 10px;
   padding: 5px;
   border-radius: 5px;
