@@ -209,7 +209,7 @@ body {
 /* Styles pour la grille d'images */
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(11%, 1fr));
   gap: 20px;
   padding: 20px;
   background: linear-gradient(transparent, white);
@@ -298,7 +298,7 @@ body {
 
 .image-list.active {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(11%, 1fr));
   gap: 20px;
   animation: slideDown 0.5s ease-in-out;
 }
