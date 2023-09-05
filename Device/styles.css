@@ -293,7 +293,7 @@ body {
   padding: 5px;
   border-radius: 5px;
   color: white;
-  background: conic-gradient(from -90deg, #7f6bff 0%, #1dd1a1 33%, #565cfd 66%, #7f6bff 100%);
+  background-color:#007bff;
   padding-left: 8px;
   padding-right: 8px;
 }

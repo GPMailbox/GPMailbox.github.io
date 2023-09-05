@@ -477,7 +477,7 @@ body {
   background-color: #007BFF;
   color: white;
 }
-/* Styles pour les boutons de médias sociaux */
+
 .social-buttons {
   display: flex;
   flex-direction: column;
@@ -522,7 +522,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Styles pour le contenu centré */
 .center{
   position: absolute;
   top: 55%;
@@ -545,7 +544,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Styles pour les champs de texte */
 form .txt_field{
   position: relative;
   border-bottom: 2px solid #adadad;
