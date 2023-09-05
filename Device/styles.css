@@ -357,7 +357,6 @@ body {
     display: none;
 }
 
-.dl-container,
 .trend-container,
 .city-container {
   display: flex;
@@ -367,18 +366,6 @@ body {
   border-radius: 100px;
   margin: 20px;
   color: #fff;
-}
-
-.android a{
-    text-decoration: none;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.dl-container{
-  background: linear-gradient(135deg, #006b2d , #00d06b);
 }
 
 .trend-container {
