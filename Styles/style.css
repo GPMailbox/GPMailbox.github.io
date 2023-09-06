@@ -434,12 +434,13 @@ body {
 }
 
 .searchbarbig input[type="text"] {
-  border: none;
-  outline: none;
-  padding: 8px;
-  font-size: 30px;
-  width: 100%;
-  color: #4e5c69;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 30px;
+    width: 100%;
+    color: #4e5c69;
+    background-color: #f0f5f9;
 }
 
 .searchbarbig button {
