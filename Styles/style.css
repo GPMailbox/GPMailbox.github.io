@@ -39,6 +39,7 @@ body {
   margin-left: auto;
   max-height: 60px;
   margin-right: 100px;
+  text-align: center;
 }
 
 /* Styles pour les icônes */
@@ -864,3 +865,87 @@ input[type="submit"]:hover {
 .matrix-effect-container {
   z-index: 0;
 }
+
+/*Style de Produits*/
+
+.Product-image-container {
+background-color: rgba(27, 59, 98, 0.6);
+width: 100%;
+border-radius: 7px;
+overflow: hidden;
+position: relative;
+}
+
+.product-container {
+  background-color: rgba(27, 59, 98, 0.6);
+  width: 100%;
+  height: 300px;
+  border-radius: 7px;
+  overflow: hidden;
+  position: relative;
+}
+
+.Product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.letter-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.511);
+  backdrop-filter: blur(5px)
+}
+
+.delivery-overlay {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color:#007bff;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.city-overlay {
+  position: absolute;
+  bottom: 7px;
+  right: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  z-index: 1;
+  text-shadow: 2px 2px 8px rgb(0, 0, 0);
+  font-size: 80%;
+}
+
+.Product-image-overlay {
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  width: 100%;
+  padding: 10px; 
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(27, 59, 98, 0));
+}
+
+.Product-image-overlay-text {
+  margin: 0;
+  color: white;
+  text-shadow: 2px 2px 8px rgb(0, 0, 0);
+  font-size: 20px;
+}
+
+.Product-image-overlay-price {
+  margin: 0;
+  color: white;
+  text-shadow: 2px 2px 8px rgb(0, 0, 0);
+  font-size: 30px;
+}
+

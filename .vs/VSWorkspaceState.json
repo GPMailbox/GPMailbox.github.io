@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Device"
+    "\\Device",
+    "\\Styles"
   ],
-  "SelectedNode": "\\Device\\styles.css",
+  "SelectedNode": "\\Styles\\style.css",
   "PreviewInSolutionExplorer": false
 }
