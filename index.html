@@ -554,6 +554,35 @@
     </div>
     </div>
 
+<!--
+<?php
+$servername = "localhost";
+$username = "votre_utilisateur";
+$password = "votre_mot_de_passe";
+$dbname = "votre_base_de_donnees";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+$sql = "SELECT * FROM annonces";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo '<div class="product-container">';
+        echo '<h2>' . $row['titre'] . '</h2>';
+        echo '<p>' . $row['description'] . '</p>';
+        echo '<p>Prix : €' . $row['prix'] . '</p>';
+        echo '<p>Ville : ' . $row['ville'] . '</p>';
+        echo '<p>Catégorie : ' . $row['categorie'] . '</p>';
+        echo '</div>';
+    }
+} else {
+    echo "Aucune annonce disponible.";
+}
+
+$conn->close();
+?>
+-->
 
     <div class="footer">
         <div class="footer-content">
