@@ -1,11 +1,9 @@
-/* Réinitialisation des styles par défaut */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
 }
 
-/* Styles pour le corps de la page */
 body {
   background-color: #ffffff;
   color: #242443;
@@ -13,7 +11,6 @@ body {
   flex-direction: column;
 }
 
-/* Styles pour la barre latérale */
 .sidebar {
   position: fixed;
   top: 0;
@@ -42,7 +39,6 @@ body {
   text-align: center;
 }
 
-/* Styles pour les icônes */
 .cart-icon,
 .account-icon,
 .notification-icon,
@@ -79,7 +75,6 @@ body {
   color: #f2d562;
 }
 
-/* Styles pour les libellés d'icônes */
 .icon-label {
   font-size: 12px;
   color: #333;
@@ -90,7 +85,6 @@ body {
   justify-content: center;
 }
 
-/* Styles pour les boutons de la barre latérale */
 .sidebar-button {
   background-color: #242443;
   color: white;
@@ -109,7 +103,6 @@ body {
   background-color: #474766;
 }
 
-/* Styles pour le fond bleu */
 .blue-bg {
   background-color: #007bff;
   transition: background-color 0.3s;
@@ -119,7 +112,6 @@ body {
   background-color: #50a3fb;
 }
 
-/* Styles pour les sous-titres */
 .subtitle {
   text-align: center;
   color: #242443;
@@ -127,7 +119,6 @@ body {
   margin-bottom: 30px;
 }
 
-/* Styles pour les éléments déroulants */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -141,7 +132,7 @@ body {
   cursor: pointer;
   padding: 6px 10px;
 }
-/* Styles pour les contenus déroulants */
+
 .dropdown-content,
 .dropdown-content-account {
   position: absolute;
@@ -169,13 +160,11 @@ body {
   background-color: #f2f2f2;
 }
 
-/* Styles pour l'affichage des contenus déroulants */
 .dropdown:hover .dropdown-content,
 .dropdown:hover .dropdown-content-account {
   display: block;
 }
 
-/* Styles pour les conteneurs de sections */
 .trend-container,
 .section-container {
   display: flex;
@@ -194,20 +183,17 @@ body {
   background: linear-gradient(135deg, #3300ff, #00b3ff);
 }
 
-/* Styles pour les icônes de section */
 .section-icon {
   color: white;
   font-size: 24px;
   margin-right: 10px;
 }
 
-/* Styles pour les titres de section */
 .section-title {
   color: white;
   font-size: 20px;
 }
 
-/* Styles pour la grille d'images */
 .image-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(11%, 1fr));
@@ -217,7 +203,6 @@ body {
   overflow: hidden;
 }
 
-/* Styles pour les conteneurs d'images */
 .image-container {
   width: 100%;
   padding-bottom: 100%;
@@ -233,7 +218,6 @@ body {
   filter: blur(5px);
 }
 
-/* Styles pour les superpositions d'images */
 .image-overlay {
   position: absolute;
   top: 0;
@@ -253,13 +237,11 @@ body {
   opacity: 1;
 }
 
-/* Styles pour le texte des superpositions d'images */
 .image-overlay-text {
   color: white;
   font-size: 18px;
 }
 
-/* Styles pour les images */
 .image {
   position: absolute;
   width: 100%;
@@ -267,7 +249,6 @@ body {
   object-fit: cover;
 }
 
-/* Styles pour le bouton "Afficher tout" */
 .show-all-button {
   text-align: center;
   margin-top: 20px;
@@ -289,7 +270,6 @@ body {
   opacity: 1;
 }
 
-/* Styles pour la liste d'images */
 .image-list {
   display: none;
   margin-top: 20px;
@@ -314,7 +294,7 @@ body {
     opacity: 1;
   }
 }
-/* Styles pour la barre de recherche */
+
 .search-container {
   display: flex;
   align-items: center;
@@ -364,7 +344,6 @@ body {
   background-color: #f0f0f0;
 }
 
-/* Styles pour le logo */
 .BigLogoGwada {
   position: relative;
   top: 50%;
@@ -373,7 +352,6 @@ body {
   height: auto;
 }
 
-/* Styles pour le pied de page */
 .footer {
   background-color: #242443;
   color: #fff;
@@ -410,13 +388,11 @@ body {
   margin-bottom: 8px;
 }
 
-/* Définition de la police personnalisée */
 @font-face {
   font-family: 'FontCrux'; 
   src: url('../Elements/crux.ttf') format('truetype'); 
 }
 
-/* Styles pour la barre de recherche étendue */
 .searchbar-container {
   position: relative;
   display: inline-block;
@@ -454,7 +430,6 @@ body {
   color: #007BFF;
 }
 
-/* Styles pour la boîte de suggestions */
 .suggestion-box {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.578); 
@@ -595,7 +570,6 @@ form .txt_field{
   width: 100%;
 }
 
-/* Styles pour le lien "Mot de passe oublié" */
 .pass{
   margin: -5px 0 20px 5px;
   color: #a6a6a6;
@@ -606,7 +580,6 @@ form .txt_field{
   text-decoration: underline;
 }
 
-/* Styles pour le bouton "Soumettre" */
 input[type="submit"]{
   width: 100%;
   height: 50px;
@@ -619,13 +592,12 @@ input[type="submit"]{
   cursor: pointer;
   outline: none;
 }
-/* Styles pour le bouton de soumission au survol */
+
 input[type="submit"]:hover {
   border-color: #2691d9;
   transition: .5s;
 }
 
-/* Styles pour les liens d'inscription */
 .signup_link {
   margin: 30px 0;
   text-align: center;
@@ -642,14 +614,12 @@ input[type="submit"]:hover {
   text-decoration: underline;
 }
 
-/* Styles pour l'espacement */
 .spacer-text {
   font-size: 0; 
   height: 60px; 
   overflow: hidden; 
 }
 
-/* Styles pour la barre de défilement personnalisée */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -667,7 +637,6 @@ input[type="submit"]:hover {
   background-color: #2691d9;
 }
 
-/* Styles pour la traduction Google */
 #google_translate_element {
   display: block;
   border: none;
@@ -684,7 +653,6 @@ input[type="submit"]:hover {
   color: white !important;
 }
 
-/* Styles pour la boîte contextuelle */
 .popup {
   position: fixed;
   top: 0;
@@ -747,7 +715,6 @@ input[type="submit"]:hover {
   background-color: #555;
 }
 
-/* Styles pour le carrousel */
 .carousel-center {
   display: flex;
   justify-content: center;
@@ -792,7 +759,6 @@ input[type="submit"]:hover {
   }
 }
 
-/* Styles pour le basculement et la personnalisation */
 .toggle-matrix-container {
   display: flex;
   flex-direction: column;
@@ -854,7 +820,6 @@ input[type="submit"]:hover {
   transform: translateX(20px);
 }
 
-/*Effet de la clé avec l'effet "matrix"*/
 .matrix-effect {
   font-family: monospace;
   font-size: 15px;
@@ -865,8 +830,6 @@ input[type="submit"]:hover {
 .matrix-effect-container {
   z-index: 0;
 }
-
-/*Style de Produits*/
 
 .Product-image-container {
 background-color: rgba(27, 59, 98, 0.6);
