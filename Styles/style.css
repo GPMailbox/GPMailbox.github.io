@@ -695,20 +695,15 @@ input[type="submit"]:hover {
   transition: background-color 0.3s ease;
 }
 
-.btn-personalize {
-  background-color: #8181ff; 
-  color: white;
-}
-
+.btn-continue,
+.btn-personalize,
 .btn-accept {
   background-color: #007BFF;
   color: white;
 }
 
-.btn-continue {
-  margin-right: 60px;
-  background-color: #db4764;
-  color: white;
+.btn-continue{
+  margin-right: 10%;
 }
 
 .popup-buttons button:hover {
