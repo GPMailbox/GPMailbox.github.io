@@ -51,28 +51,16 @@ body {
 }
 
 .cart-icon:hover,
-.cart-icon.active {
-  color: #f28b62;
-}
-
+.cart-icon.active,
 .message-icon:hover,
-.message-icon.active {
-  color: #b386d3;
-}
-
+.message-icon.active,
 .account-icon:hover,
-.account-icon.active {
-  color: #db4764;
-}
-
+.account-icon.active,
 .heart-icon:hover,
-.heart-icon.active {
-  color: #fd86c4;
-}
-
+.heart-icon.active,
 .notification-icon:hover,
 .notification-icon.active {
-  color: #f2d562;
+  color: #007BFF;
 }
 
 .icon-label {
@@ -157,6 +145,7 @@ body {
 
 .dropdown-content a:hover,
 .dropdown-content-account a:hover {
+  color: #007bff;
   background-color: #f2f2f2;
 }
 
@@ -842,6 +831,16 @@ position: relative;
   border-radius: 7px;
   overflow: hidden;
   position: relative;
+  outline: solid #fff;
+  box-shadow: none;
+  transition: outline 0.5s, height 0.5s, box-shadow 0.5s;
+  outline-offset: 4px;
+}
+
+.product-container:hover{
+  height: 290px;
+  outline: solid #007bff;
+  box-shadow: 0px 15px 12px  #0000003a;
 }
 
 .Product-image {
