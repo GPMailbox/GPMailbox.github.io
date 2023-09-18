@@ -1,0 +1,399 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  header {
+    background-color: #fff;
+    color: #242443;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.192);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .header-second {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    bottom: 0;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.192);
+    transition: height 0.3s ease-in-out;
+  }
+  
+  .hidden {
+    height: 0;
+  }
+
+  .header-second a{
+    margin-right: 40px;
+  }
+  .menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+  }
+  
+  .bell-btn {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    margin-left: 5px;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -300px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: rgba(245, 242, 242, 0.801); 
+    backdrop-filter: blur(15px);
+    color: #242443;
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    max-height: calc(100% - 80px);
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin: 20px 0;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #242443;
+    font-size: 18px;
+    margin-left: 20px;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+.logo img {
+    width: 250px;
+    height: auto;
+    margin-left: 30px;
+  }
+
+.popup-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(245, 242, 242, 0.8); 
+    backdrop-filter: blur(10px);
+    z-index: 2;
+}
+
+.popup-text {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.popup-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-buttons button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.separator {
+    width: 100%;
+    height: 2px;
+    background-color: #007BFF;
+    margin: 10px 0;
+  }
+
+  .account-sidebar {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .spacer-text {
+    font-size: 0; 
+    height: 60px; 
+    overflow: hidden; 
+  }
+
+  footer {
+    flex-shrink: 0;
+  }
+
+  .btn-deposer {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 35px;
+  }
+  
+  .btn-deposer i {
+    margin-right: 10px;
+  }
+  
+  .searchbarbig {
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    background-color: #f0f5f9;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 250px;
+  }
+
+  .searchbarbig input[type="text"] {
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 30px;
+    width: 100%;
+    color: #4e5c69;
+    background-color: #f0f5f9;
+  }
+  
+  .searchbarbig button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 8px;
+    color: #007BFF;
+  }
+  
+  /* Styles pour la boîte de suggestions */
+  .suggestion-box {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.578); 
+    backdrop-filter: blur(15px);
+    border: 1px solid gray;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1;
+    margin-top: 5px;
+    left: 10px; 
+    right: 10px; 
+    display: none;
+    border-radius: 10px;
+  }
+  
+  .suggestion {
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .suggestion:hover {
+    background-color: #007BFF;
+    color: white;
+  }
+
+.image-grid {
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.image-container {
+  background-color: rgba(27, 59, 98, 0.6);
+  min-width: 220px;
+  height: 150px;
+  border-radius: 7px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-container {
+  background-color: rgba(27, 59, 98, 0.6);
+  min-width: 220px;
+  width: 220px;
+  height: 220px;
+  border-radius: 7px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.letter-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.511);
+  backdrop-filter: blur(5px)
+}
+
+.delivery-overlay {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color:#007bff;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.city-overlay {
+  position: absolute;
+  bottom: 7px;
+  right: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  z-index: 1;
+  text-shadow: 2px 2px 8px rgb(0, 0, 0);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  width: 100%;
+  padding: 10px; 
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(27, 59, 98, 0));
+}
+
+.image-overlay-text {
+  margin: 0;
+  color: white;
+  text-shadow: 2px 2px 8px rgb(0, 0, 0);
+  font-size: 20px;
+}
+
+
+.image-overlay-price {
+  margin: 0;
+  color: white;
+  text-shadow: 2px 2px 8px rgb(0, 0, 0);
+  font-size: 30px;
+}
+
+/* Style de la barre de défilement */
+::-webkit-scrollbar {
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Style pour le bouton "Show All" (supprimé) */
+.show-all-button {
+    display: none;
+}
+
+/* Styles pour la liste d'images (supprimée) */
+.image-list {
+    display: none;
+}
+
+.trend-container,
+.city-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 100px;
+  margin: 20px;
+  color: #fff;
+}
+
+.trend-container {
+  background: linear-gradient(135deg, #ffae00, #ff0080);
+}
+
+.city-container {
+  background: linear-gradient(135deg, #3300ff, #00b3ff);
+}
+
+.center-rot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
+.logo-container{
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.fa-text-icon{
+  margin-right: 5px;
+}
+
+.header-second.hidden {
+  opacity: 0;
+  display: none;
+}
