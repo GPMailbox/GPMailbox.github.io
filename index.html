@@ -113,7 +113,7 @@
             </div>
             <div class="popup-buttons">
                 <a href="main.html" target="GPMpage"><button class="btn-continue">Continuer sans participer</button></a>
-                <button class="btn-personalize">Personnaliser</button>
+                <a href="Pages/privacy-policy.html" target="GPMpage"><button class="btn-personalize">Personnaliser</button></a>
                 <a href="main.html" target="GPMpage"><button class="btn-accept">Accepter</button></a>
             </div>
         </div>
@@ -137,10 +137,6 @@
     popup.style.display = 'none';
     }
 
-    function redirectToCustomize() {
-    window.location.href = 'Pages/privacy-policy.html';
-    }
-
     function showPopupOnLoad() {
     var popup = document.querySelector('.popup');
     var referrer = document.referrer;
@@ -159,7 +155,7 @@
 
     acceptButton.addEventListener('click', closePopup);
     continueButton.addEventListener('click', closePopup);
-    personalizeButton.addEventListener('click', redirectToCustomize);
+    personalizeButton.addEventListener('click', closePopup);
     });
 
 </script>

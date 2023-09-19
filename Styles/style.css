@@ -828,6 +828,7 @@ position: relative;
 .product-container {
   background-color: rgba(27, 59, 98, 0.6);
   width: 100%;
+  min-width: 180px;
   height: 300px;
   max-height: 300px;
   border-radius: 7px;
@@ -909,5 +910,5 @@ position: relative;
   color: white;
   text-shadow: 2px 2px 8px rgb(0, 0, 0);
   font-size: 30px;
+  margin-bottom: 15px;
 }
-
