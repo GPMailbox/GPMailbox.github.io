@@ -12,6 +12,11 @@
   <link rel="icon" type="image/png" href="../Elements/logov4.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+<style>
+    body{
+        width:100%;
+    }
+</style>
 <body>
   <header>
     <div class="menu-btn" id="menuBtn">
@@ -33,9 +38,10 @@
                 <img src="../Elements/logo.png" alt="Logo" style="margin-bottom: 50px;">
             </div>
             </div>
+        
         <button class="btn-deposer">
-          <i class="fas fa-plus"></i> Déposer une annonce
-        </button>              
+            <i class="fas fa-plus"></i> Déposer une annonce
+        </button>   
         <li><a href="#"><i class="fas fa-home"></i>  Accueil</a></li>
         <li><a href="#"><i class="fa-solid fa-envelope"></i>  Messages</a></li>
         <li><a href="#"><i class="fas fa-bell"></i>  Notifications</a></li>
@@ -628,7 +634,7 @@ menuBtn.addEventListener('click', () => {
 });
 
 closeBtn.addEventListener('click', () => {
-  sidebar.style.left = '-300px';
+  sidebar.style.left = '-100%';
   body.style.overflow = 'auto';
 });
 
