@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="Javascript/script.js"></script>
+    <script src="Javascript/suggestions.js"></script>
+    <title translate="no">GPMailbox</title>
+    <link rel="icon" type="image/x-icon" href="Elements/logov1.ico">
+</head>
+<style>
+@keyframes fade-in-out {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+body > * {
+  animation: fade-in-out 1s ease-in-out;
+}
+</style>
+<body>
+</div>
+<div class="subtitle">
+    <div class="spacer-text">Texte invisible pour occuper de l'espace</div>
+    <h1>Votre destination shopping en ligne pour la Guadeloupe, simplifié et diversifié.</h1>
+    <p>Créez des connexions locales en toute simplicité grâce à notre plateforme de shopping en ligne en Guadeloupe, favorisant les échanges entre habitants pour acheter et vendre en toute confiance.</p>
+</div>
+</div>
+
+<img class="BigLogoGwada" src="Elements/BigLogoGwada.png" alt="Big Logo Gwada">
+
+<div class="searchbar-container">
+<div class="searchbarbig">
+  <input type="text" name="search" id="search" placeholder="Rechercher..." autocomplete="off">
+  <button><i class="fa fa-search"></i></button>
+</div>
+<div class="suggestion-box" id="suggestions"></div>
+</div>
+
+<iframe src="Advertisement/advertisement.html" width="100%" height="300" frameborder="0"></iframe>
+
+<div class="trend-container">
+    <i class="fas fa-home section-icon"></i>
+    <div class="section-title">Categories</div>
+</div>
+
+<div class="image-grid">
+    <div class="image-container">
+        <img class="image" src="https://www.meublesrigaud.com/3214-thickbox_default/meuble-d-entree-2-portes-1-tiroir-prima.jpg" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Meubles</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://www.fashionatingworld.com/images/news/Post-COVID-19-textile-apparel-industry-can-help-build-other-sectors-of.jpg" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Vêtements</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.da1e3ea6c09ae8e0697ae8d4ffb68050?rik=CrFvc%2fjQJocVQg&pid=ImgRaw&r=0" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Électronique</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.0eccfebbc80b0d152beee471c53e8cf4?rik=XtCDQV2a%2fcFYsw&riu=http%3a%2f%2f1.bp.blogspot.com%2f-JpOJ0_Y84Kg%2fUuzQtSAMxGI%2fAAAAAAAAADc%2fux20g2yo2Ww%2fs1600%2fmotorized-bicycle.jpeg&ehk=kMSaCcsDy%2bOcbuxBdLvXoUYWbhcUiAPZGjSf5DLFo1A%3d&risl=&pid=ImgRaw&r=0" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Sports et loisirs</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://lh3.googleusercontent.com/rq5tyWsGU0tkypbMek-u9sOMwrCdqiotCvrQciHSHIQQn-eyDDqoXCMUbyBXs1AAFRAqQ16QYJX1On6u=w768-h768-n-o-v1" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Livres</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?cs=srgb&dl=automobile-automotive-car-112460.jpg&fm=jpg" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Automobile</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://fr.yamaha.com/fr/files/8_G_GC_series_1080_1080[1]_1080x1080_1e1e21e7ee06fc6fb68f3c2640f49d85.jpg" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Instruments..</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://ahdhoreca.com/wp-content/uploads/2020/11/couvert2.jpg" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Cuisine & Alim..</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="show-all-button" id="showAllButtonCategories" onclick="toggleImageList('imageListCategories', 'showAllButtonCategories')">
+    <i class="fas fa-chevron-down"></i> Plus
+</div>
+
+<div class="image-list" id="imageListCategories">
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.6656c26fef692290843c01b8fd389af1?rik=ZszjX9ApNOSLDQ&riu=http%3a%2f%2fwww.france-artisanat.fr%2ffa%2fuploadify%2fuploads-folder%2f9cb393fd3642953f5b37d829ebf31910.jpg&ehk=cRv8DZqM%2bxlpYUfoQk4j3qkShC0CvUE3NGEIPsaXaUQ%3d&risl=&pid=ImgRaw&r=0" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Art..</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/OIP.3zdyGvEEgyPZg_SRmy7daQHaHa?pid=ImgDet&rs=1" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Outils..</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.e7893f3da255f21a7c02ee4e94108216?rik=MVhBZneCaZnDjA&pid=ImgRaw&r=0" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Santé & Beauté</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://www.pixel-creation.com/wp-content/uploads/video-game-wallpaper-widescreen-free-download-subwallpaper-800x800.jpg" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Jeux vidéos</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://primanyc.net/wp-content/uploads/2020/04/quels-jouets-pour-un-bebe-de-0-a-6-mois-mamzell-plume-interieur-bebe-6-mois-eveil-760x570.jpg" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Bébés & enfants</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/OIP.SQtH9lOjba81jf0DRHVP7wHaE8?pid=ImgDet&w=800&h=534&rs=1" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Appareils photos</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://images.pexels.com/photos/14166/pexels-photo-14166.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Équipement audio</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://www.pixel-creation.com/wp-content/uploads/cute-kittens-wallpapers-free-download-001-on-kitten-pictures-800x800.jpg" alt="Image 1">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Animaux</p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="section-container">
+<i class="fas fa-city section-icon"></i>
+<div class="section-title">Par Lieux</div>
+</div>
+<div class="image-grid">
+    <div class="image-container">
+        <img class="image" src="https://duflan.fr/wp-content/uploads/2020/01/vue-satellite-grande-terre-guadeloupe-jpg.jpg" alt="local">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Ma Localisation</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.b4e46faf5475aea34ee051334be36c9a?rik=wI8RWMa78539zw&pid=ImgRaw&r=0&sres=1&sresct=1" alt="Pointe-à-Pitre">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Pointe-à-Pitre</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/OIP.dmVqOorX-RzQTyV3JgnfdgHaFj?pid=ImgDet&rs=1" alt="Anse-Bertrand">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Anse-Bertrand</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://lonelyplanetimages.imgix.net/mastheads/GettyImages-495797113_super.jpg?sharp=10&vib=20&w=1200" alt="Deshaies">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Deshaies</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://fr.guadeloupe-tourisme.com/images/bouillante/centralegeothermique.jpg" alt="Bouillante">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Bouillante</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.cd7c9232ae31c8d8b5bba0d1bd803f9d?rik=zW%2bNX2tb6j%2bWFw&riu=http%3a%2f%2ffr.guadeloupe-tourisme.com%2fimages%2fphotos%2f354_photo_1.jpg&ehk=H46rrTjk%2byo3tTsEnKESQQTV4MoAikad1fb%2br3gQfps%3d&risl=&pid=ImgRaw&r=0" alt="Petit-Bourg">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Petit-Bourg</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.c41a2f9b1e2f5b2077300bfa8bf8198f?rik=FYC1vFbgdR6jTQ&riu=http%3a%2f%2fwww.guadeloupe-leguide.fr%2fimages%2fquefaire%2fvieux-fort-tradition-et-savoir-faire_2.jpg&ehk=xBOzyd8v5KD%2bsgZxGhxyWGL%2bVJ9ED9EYe8LZxABrK8s%3d&risl=&pid=ImgRaw&r=0" alt="Vieux-Fort">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Vieux-Fort</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Eglise_de_Terre-de-Haut.jpg/420px-Eglise_de_Terre-de-Haut.jpg" alt="Terre de Haut">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Terre de Haut</p>
+        </div>
+    </div>
+
+</div>
+<div class="show-all-button" id="showAllButtonLocations" onclick="toggleImageList('imageListLocations', 'showAllButtonLocations')">
+    <i class="fas fa-chevron-down"></i> Plus
+</div>
+
+<div class="image-list" id="imageListLocations">
+       <div class="image-container">
+    <img class="image" src="https://th.bing.com/th/id/R.eae99eeeb6e1b453f86add3eaaae1d2e?rik=gJhN84fM6LcPTQ&pid=ImgRaw&r=0" alt="Terre de Bas">
+    <div class="image-overlay">
+        <p class="image-overlay-text">Terre de Bas</p>
+    </div>
+</div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.a596420f78218902c91df352055f13c3?rik=u38sAXPGGEbKKA&pid=ImgRaw&r=0" alt="Le Moule">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Le Moule</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/OIP.Y9J5M0jv8EmB-TVb5sYXSQHaFj?pid=ImgDet&rs=1" alt="Capesterre-Belle-Eau">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Capesterre-Bel..</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.eeebaa4e510b2af3721c6a40ffa79660?rik=DXcYAy3CXCJVKg&pid=ImgRaw&r=0" alt="Basse-Terre">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Basse-Terre</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.38a96923aca8eb8e2cbb965413898d12?rik=2frdWf9eQBKG7g&riu=http%3a%2f%2fwww.guadeloupe-leguide.fr%2fimages%2fville%2fbaillif_1.jpg&ehk=ZDFzyY88rvcqXDQJlDGMWX%2bYb3iNin1s9ybdF07GrhQ%3d&risl=&pid=ImgRaw&r=0" alt="Baillif">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Baillif</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/OIP.vJ9WTZjUCxqWfl1lk1KW5wHaE5?pid=ImgDet&rs=1" alt="Les Abymes">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Les Abymes</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://www.goedkoperondreis.com/wp-content/uploads/2017/02/guadeloupe-1892729_1280.jpg?x30150" alt="Baie Mahault">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Baie-Mahault</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/OIP.hgoTWGGjl77lYUBg5xPDcAHaEK?pid=ImgDet&rs=1" alt="Sainte-Anne">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Sainte-Anne</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.14eff4f1d4aa3867a22e241c8ad508bd?rik=ito6o2CtKT6NeQ&pid=ImgRaw&r=0" alt="Saint-François">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Saint-François</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://media.guadeloupe.net/images/pointe-noire.jpg" alt="Pointe-Noire">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Pointe-Noire</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://media.guadeloupe.net/images/port-louis.jpg" alt="Port Louis">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Port Louis</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://media.guadeloupe.net/images/morne-a-l-eau.jpg" alt="Morne à l'eau">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Morne-à-l'eau</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://media.guadeloupe.net/images/lamentin.jpg" alt="Lamentin">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Lamentin</p>
+        </div>
+        <img class="image" src="https://th.bing.com/th/id/R.e15d39a93b16c53b7472d2157d67a3da?rik=PS4g3o5U%2ftfJwA&pid=ImgRaw&r=0&sres=1&sresct=1" alt="La Désirade">
+        <div class="image-overlay">
+            <p class="image-overlay-text">la Désirade</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://i.ytimg.com/vi/ov728zm76f0/maxresdefault.jpg" alt="Capesterre de Marie-Galante">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Capesterre (MG)</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.357400a3e3cd037e9c2d0947c2b8bd53?rik=brgQcJqI%2fd%2bdRA&pid=ImgRaw&r=0" alt="Gourbeyre">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Gourbeyre</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.616683e88fdc933bc9188f8c924defb6?rik=n7Z6TwcxcJiOww&riu=http%3a%2f%2ffr.guadeloupe-tourisme.com%2fimages%2fphotos%2f496_photo_1.jpg&ehk=KuDeqc7tYMUeOg5haqOcgX1o41N8SZ1UAEGLKQxHSN4%3d&risl=&pid=ImgRaw&r=0" alt="Goyave">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Goyave</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://i.pinimg.com/originals/6f/24/e8/6f24e831b9c89aedee18659296e92bca.jpg" alt="Sainte Rose">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Sainte-Rose</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.ed6407fa2bc8a7fb6ad553dafa2f5b0c?rik=eyqpJQ8ikJSMjg&riu=http%3a%2f%2ffarm1.staticflickr.com%2f807%2f39481629300_fa416ec5f7_b.jpg&ehk=iYjRSNLu4jhUElUM4kgrg1agGJwmWD7YkSKumMB1xTE%3d&risl=&pid=ImgRaw&r=0" alt="Grand-Bourg">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Grand-Bourg</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://live.staticflickr.com/5195/6966944676_81a1054a4a_b.jpg" alt="Vieux-Habitants">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Vieux-Habitants</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://www.guadeloupe-leguide.fr/images/quefaire/saint-claude-lieu-d-histoire_1.jpg" alt="Saint-Claude">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Saint-Claude</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://fr.guadeloupe-tourisme.com/images/photos/337_photo_3.jpg" alt="Sainte-Louis">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Saint-Louis</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://img.ev.mu/images/villes/64979/960x640.jpg" alt="Trois-Rivières">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Trois-Rivières</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.ada12f9be85c738bed55f4fbda60a49d?rik=0hPLPPa2z67qdg&riu=http%3a%2f%2fleiguadeloupe.proximit.fr%2fphotos%2f505%2f505000968_4.jpg&ehk=jSmiQQfXS5RvtD%2b2HYTU%2bor2h3crKZevlT8xAyJIrYo%3d&risl=&pid=ImgRaw&r=0" alt="Petit-Canal">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Petit-Canal</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="https://th.bing.com/th/id/R.cdd56e0f7a899164a600874f316d7537?rik=t6TF3DtvH9gyOQ&pid=ImgRaw&r=0" alt="Le Gosier">
+        <div class="image-overlay">
+            <p class="image-overlay-text">Le Gosier</p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="section-container">
+    <i class="fas fa-star section-icon"></i>
+    <div class="section-title">Récemment ajouté</div>
+</div>
+
+<a href="Pages/ad-page.html">
+<div class="image-grid">
+    <div class="product-container">
+        <div class="letter-overlay"><i class="fas fa-bicycle"></i></div>
+        <div class="delivery-overlay"><i class="fas fa-box"></i></div>
+        <div class="city-overlay" translate="no">Baie-Mahault</div>
+        <img class="Product-image" src="https://media.discordapp.net/attachments/1146071476072615986/1148598779252068413/test-velo-mad-urbain-2-1-scaled.jpg">
+        <div class="Product-image-overlay">
+            <p class="Product-image-overlay-text">Test #1</p>
+            <p class="Product-image-overlay-price">Prix €</p>
+        </div>
+    </div>
+</a>
+
+    <div class="product-container">
+        <div class="letter-overlay"><i class="fas fa-camera"></i></div>
+        <div class="city-overlay" translate="no">Deshaies</div>
+        <img class="Product-image" src="https://media.discordapp.net/attachments/1146071476072615986/1148598779931541524/canon-eos_r100-garymorrisroe-ambient-50609-770x513.jpg">
+        <div class="Product-image-overlay">
+            <p class="Product-image-overlay-text">Test #2</p>
+            <p class="Product-image-overlay-price">Prix €</p>
+        </div>
+    </div>
+    <div class="product-container">
+        <div class="letter-overlay"><i class="fas fa-gamepad"></i></div>
+        <div class="delivery-overlay"><i class="fas fa-box"></i></div>
+        <div class="city-overlay" translate="no">Pointe-Noire</div>
+        <img class="Product-image" src="https://media.discordapp.net/attachments/1146071476072615986/1148598779491131493/raw.jpg">
+        <div class="Product-image-overlay">
+            <p class="Product-image-overlay-text">Test #3</p>
+            <p class="Product-image-overlay-price">Prix €</p>
+        </div>
+    </div>
+        <div class="product-container">
+            <div class="letter-overlay"><i class="fas fa-music"></i></div>
+            <div class="city-overlay" translate="no">Pointe-à-Pitre</div>
+            <img class="Product-image" src="https://media.discordapp.net/attachments/1146071476072615986/1148601027487072307/8155-BdB3hL._SL1500_.jpg">
+            <div class="Product-image-overlay">
+                <p class="Product-image-overlay-text">Test #4</p>
+                <p class="Product-image-overlay-price">Prix €</p>
+            </div>
+        </div>
+        <div class="product-container">
+            <div class="letter-overlay"><i class="fas fa-baby"></i></div>
+            <div class="city-overlay" translate="no">Morne-à-l'eau</div>
+            <img class="Product-image" src="https://media.discordapp.net/attachments/1146071476072615986/1148601027747139675/02-xylophone-jouet-enfant-1.jpg">
+            <div class="Product-image-overlay">
+                <p class="Product-image-overlay-text">Test #5</p>
+                <p class="Product-image-overlay-price">Prix €</p>
+            </div>
+        </div>
+        <div class="product-container">
+            <div class="letter-overlay"><i class="fas fa-paint-brush"></i></div>
+            <div class="delivery-overlay"><i class="fas fa-box"></i></div>
+            <div class="city-overlay" translate="no">Sainte-Rose</div>
+            <img class="Product-image" src="https://media.discordapp.net/attachments/1146071476072615986/1148601028070092932/Kathleen_480x4802x.jpg">
+            <div class="Product-image-overlay">
+                <p class="Product-image-overlay-text">Test #6</p>
+                <p class="Product-image-overlay-price">Prix €</p>
+            </div>
+        </div>
+        <div class="product-container">
+            <div class="letter-overlay"><i class="fas fa-guitar"></i></div>
+            <div class="delivery-overlay"><i class="fas fa-box"></i></div>
+            <div class="city-overlay" translate="no">La Désirade</div>
+            <img class="Product-image" src="https://images.reverb.com/image/upload/s--M1x1PdHT--/f_auto,t_supersize/v1570041836/zo9eyud3eddrscolssci.jpg">
+            <div class="Product-image-overlay">
+                <p class="Product-image-overlay-text">Test #7</p>
+                <p class="Product-image-overlay-price">Prix €</p>
+            </div>
+        </div>
+        <div class="product-container">
+            <div class="letter-overlay"><i class="fas fa-laptop"></i></div>
+            <div class="delivery-overlay"><i class="fas fa-box"></i></div>
+            <div class="city-overlay" translate="no">Vieux-Fort</div>
+            <img class="Product-image" src="https://images.techhive.com/images/article/2016/04/raspberry-pi-1-2-3-100656553-orig.jpg">
+            <div class="Product-image-overlay">
+                <p class="Product-image-overlay-text">Test #8</p>
+                <p class="Product-image-overlay-price">Prix €</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<div class="section-container">
+    <i class="fas fa-history section-icon"></i>
+    <div class="section-title">Récemment regardé</div>
+</div>
+
+
+<div class="image-grid">
+<div class="product-container">
+    <div class="letter-overlay"><i class="fas fa-bicycle"></i></div>
+    <div class="delivery-overlay"><i class="fas fa-box"></i></div>
+    <div class="city-overlay" translate="no">Baie-Mahault</div>
+    <img class="Product-image" src="https://media.discordapp.net/attachments/1146071476072615986/1148598779252068413/test-velo-mad-urbain-2-1-scaled.jpg">
+    <div class="Product-image-overlay">
+        <p class="Product-image-overlay-text">Test #1</p>
+        <p class="Product-image-overlay-price">Prix €</p>
+    </div>
+</div>
+<div class="product-container">
+    <div class="letter-overlay"><i class="fas fa-camera"></i></div>
+    <div class="city-overlay" translate="no">Deshaies</div>
+    <img class="Product-image" src="https://media.discordapp.net/attachments/1146071476072615986/1148598779931541524/canon-eos_r100-garymorrisroe-ambient-50609-770x513.jpg">
+    <div class="Product-image-overlay">
+        <p class="Product-image-overlay-text">Test #2</p>
+        <p class="Product-image-overlay-price">Prix €</p>
+    </div>
+</div>
+<div class="product-container">
+    <div class="letter-overlay"><i class="fas fa-gamepad"></i></div>
+    <div class="delivery-overlay"><i class="fas fa-box"></i></div>
+    <div class="city-overlay" translate="no">Pointe-Noire</div>
+    <img class="Product-image" src="https://media.discordapp.net/attachments/1146071476072615986/1148598779491131493/raw.jpg">
+    <div class="Product-image-overlay">
+        <p class="Product-image-overlay-text">Test #3</p>
+        <p class="Product-image-overlay-price">Prix €</p>
+    </div>
+</div>
+    <div class="product-container">
+        <div class="letter-overlay"><i class="fas fa-music"></i></div>
+        <div class="city-overlay" translate="no">Pointe-à-Pitre</div>
+        <img class="Product-image" src="https://media.discordapp.net/attachments/1146071476072615986/1148601027487072307/8155-BdB3hL._SL1500_.jpg">
+        <div class="Product-image-overlay">
+            <p class="Product-image-overlay-text">Test #4</p>
+            <p class="Product-image-overlay-price">Prix €</p>
+        </div>
+    </div>
+    <div class="product-container">
+        <div class="letter-overlay"><i class="fas fa-baby"></i></div>
+        <div class="city-overlay" translate="no">Morne-à-l'eau</div>
+        <img class="Product-image" src="https://media.discordapp.net/attachments/1146071476072615986/1148601027747139675/02-xylophone-jouet-enfant-1.jpg">
+        <div class="Product-image-overlay">
+            <p class="Product-image-overlay-text">Test #5</p>
+            <p class="Product-image-overlay-price">Prix €</p>
+        </div>
+    </div>
+    <div class="product-container">
+        <div class="letter-overlay"><i class="fas fa-paint-brush"></i></div>
+        <div class="delivery-overlay"><i class="fas fa-box"></i></div>
+        <div class="city-overlay" translate="no">Sainte-Rose</div>
+        <img class="Product-image" src="https://media.discordapp.net/attachments/1146071476072615986/1148601028070092932/Kathleen_480x4802x.jpg">
+        <div class="Product-image-overlay">
+            <p class="Product-image-overlay-text">Test #6</p>
+            <p class="Product-image-overlay-price">Prix €</p>
+        </div>
+    </div>
+    <div class="product-container">
+        <div class="letter-overlay"><i class="fas fa-guitar"></i></div>
+        <div class="delivery-overlay"><i class="fas fa-box"></i></div>
+        <div class="city-overlay" translate="no">La Désirade</div>
+        <img class="Product-image" src="https://images.reverb.com/image/upload/s--M1x1PdHT--/f_auto,t_supersize/v1570041836/zo9eyud3eddrscolssci.jpg">
+        <div class="Product-image-overlay">
+            <p class="Product-image-overlay-text">Test #7</p>
+            <p class="Product-image-overlay-price">Prix €</p>
+        </div>
+    </div>
+    <div class="product-container">
+        <div class="letter-overlay"><i class="fas fa-laptop"></i></div>
+        <div class="delivery-overlay"><i class="fas fa-box"></i></div>
+        <div class="city-overlay" translate="no">Vieux-Fort</div>
+        <img class="Product-image" src="https://images.techhive.com/images/article/2016/04/raspberry-pi-1-2-3-100656553-orig.jpg">
+        <div class="Product-image-overlay">
+            <p class="Product-image-overlay-text">Test #8</p>
+            <p class="Product-image-overlay-price">Prix €</p>
+        </div>
+    </div>
+
+</div>
+
+<!--
+<?php
+$servername = "localhost";
+$username = "votre_utilisateur";
+$password = "votre_mot_de_passe";
+$dbname = "votre_base_de_donnees";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+$sql = "SELECT * FROM annonces";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+while ($row = $result->fetch_assoc()) {
+    echo '<div class="product-container">';
+    echo '<h2>' . $row['titre'] . '</h2>';
+    echo '<p>' . $row['description'] . '</p>';
+    echo '<p>Prix : €' . $row['prix'] . '</p>';
+    echo '<p>Ville : ' . $row['ville'] . '</p>';
+    echo '<p>Catégorie : ' . $row['categorie'] . '</p>';
+    echo '</div>';
+}
+} else {
+echo "Aucune annonce disponible.";
+}
+
+$conn->close();
+?>
+-->
+
+<div class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-title"><i class="fas fa-info-circle footer-icon"></i>  A PROPOS</div>
+        <a href="Pages/about-us.html" class="footer-link">Qui sommes-nous ?</a>
+        <a href="Pages/contact.html" class="footer-link">Contact</a>
+      </div>
+      <div class="footer-section">
+        <div class="footer-title"><i class="fas fa-gavel footer-icon"></i>  INFORMATIONS LEGALES</div>
+        <a href="Pages/terms-of-use.html" class="footer-link">Conditions d'utilisation</a>
+        <a href="Pages/privacy-policy.html" class="footer-link">Politique de confidentialité</a>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+const accountIcon = document.getElementById('accountIcon');
+const dropdownContentAccount = accountIcon.querySelector('.dropdown-content-account');
+const sidebar = document.querySelector('.sidebar');
+
+accountIcon.addEventListener('mouseenter', () => {
+    dropdownContentAccount.style.display = 'block';
+});
+
+sidebar.addEventListener('mouseleave', (event) => {
+    const isHoveringSidebar = event.relatedTarget && event.relatedTarget.closest('.sidebar');
+    if (!isHoveringSidebar) {
+        dropdownContentAccount.style.display = 'none';
+    }
+});
+});
+
+</script>
+</html>

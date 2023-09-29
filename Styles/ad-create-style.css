@@ -223,7 +223,6 @@
     transform: scale(1.05);
 }
 
-/* Flash animation */
 @keyframes flash {
     0% {
         opacity: 0;

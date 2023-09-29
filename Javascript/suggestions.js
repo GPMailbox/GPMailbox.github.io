@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const suggestionBox = document.getElementById("suggestions");
 
   const suggestions = [
-    "1917",
+       "1917",
         "1984",
         "2DS",
         "2DS XL",

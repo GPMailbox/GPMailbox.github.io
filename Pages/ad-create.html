@@ -8,22 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="Javascript/script.js"></script>
     <link rel="icon" type="image/x-icon" href="../Elements/logov1.ico">
-    <title>GPMailbox</title>
+    <title>GPMailbox - Déposer une annonce</title>
 </head>
 <body>
-    <nav class="sidebar">
-        <div class="sphere-decor">
-            <div class="sphere"></div>
-            <div class="sphere"></div>
-            <div class="sphere"></div>
-        </div>
-        <div class="logo">
-            <a href="../index.html"><img src="../Elements/logo.png" alt="Logo"></a>
-        </div>
-        <h1>Création d'annonce</h1>
-    </nav>
     <div id="create-ad-form-container">
-        <form id="create-ad-form" enctype="multipart/form-data">
+        <form id="create-ad-form" enctype="multipart/form-data" method="POST" action="ad_create_sys.php">
             <h1>Image(s) :</h1>
             <div class="upload-container">
                 <label for="imageUpload" class="upload-label">
@@ -59,6 +48,7 @@
             <select name="city" id="citySelect">
                 <option value="" disabled selected>Sélectionner une ville</option>
             </select>
+
             <label for="category">Catégorie :</label>
             <select name="category" id="categorySelect">
                 <option value="" disabled selected>Sélectionner une catégorie</option>
