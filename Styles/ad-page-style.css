@@ -243,7 +243,7 @@ hr {
     margin: 0 10px;
     cursor: pointer;
     outline: solid #ffffff00;
-    transition: outline 0.5s ease-in-out;
+    transition: outline 0.3s ease-in-out;
     object-fit: cover;
     margin-top: 10px;
     margin-bottom: 10px;
