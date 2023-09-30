@@ -1,7 +1,7 @@
 function removeHtmlExtension() {
     var currentURL = window.location.href;
 
-    if (currentURL.endsWith('.html')) {
+    if (currentURL.endsWith('index.html')) {
         var newURL = currentURL.substring(0, currentURL.length - 5);
         window.history.replaceState(null, null, newURL);
     }
