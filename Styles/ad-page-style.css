@@ -34,6 +34,7 @@ img {
     display: block;
     height: auto;
     width: 100%;
+    border-radius: 10px;
 }
 
 hr {
@@ -51,6 +52,7 @@ hr {
 
 .profile-image {
     width: 35px;
+    margin-right: 10px;
 }
 
 .username {
@@ -164,7 +166,7 @@ hr {
   .slides {
     display: flex;
     transition: transform 0.3s ease-in-out;
-    max-height: 1010px;
+    max-height: 700px;
   }
   
   .slides img {

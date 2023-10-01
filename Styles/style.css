@@ -833,7 +833,7 @@ position: relative;
   border-radius: 7px;
   overflow: hidden;
   position: relative;
-  outline: solid #fff;
+  outline: solid #ffffff00;
   box-shadow: none;
   transition: outline 0.5s, height 0.5s, box-shadow 0.5s, filter 0.5s;
   outline-offset: 4px;;
