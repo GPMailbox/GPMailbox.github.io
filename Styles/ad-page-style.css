@@ -164,6 +164,7 @@ hr {
   .slides {
     display: flex;
     transition: transform 0.3s ease-in-out;
+    max-height: 1010px;
   }
   
   .slides img {
